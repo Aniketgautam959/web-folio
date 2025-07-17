@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "title": "Aditya Madwal | Full-Stack Developer",
+    "description": "Portfolio website showcasing full-stack development work and skills"
+  },
+  "personal": {
+    "name": "Aditya Madwal",
+    "title": "Full-Stack Developer",
+    "location": "Ghaziabad, India",
+    "avatar": "/confident-professional.png",
+    "email": "adityamadwal@gmail.com",
+    "phone": "+91 8130492789",
+    "workingHours": "Monday - Friday, 9am - 6pm IST",
+    "availableForWork": true,
+    "badges": ["Full-Stack", "Backend", "UI/UX"],
+    "social": [
+      {
+        "platform": "GitHub",
+        "url": "https://github.com/aditya-madwal/",
+        "icon": "Github"
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "https://linkedin.com/in/aditya-madwal-118525257",
+        "icon": "Linkedin"
+      },
+      {
+        "platform": "Portfolio",
+        "url": "https://adityamadwal.onrender.app",
+        "icon": "Globe"
+      }
+    ]
+  },
+  "about": {
+    "bio": "I'm a passionate full-stack developer with expertise in building scalable web applications. Currently pursuing Computer Science at K.I.E.T Group of Institutions with hands-on experience in Django, React, and modern web technologies.",
+    "focus": [
+      "Building scalable RESTful APIs using Django and Django REST Framework",
+      "Creating responsive and intuitive user interfaces with React and Next.js",
+      "Optimizing application performance and database queries"
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "proficiency": "Fluent",
+        "level": 90,
+        "flag": "🇺🇸"
+      },
+      {
+        "name": "Hindi",
+        "proficiency": "Native",
+        "level": 100,
+        "flag": "🇮🇳"
+      }
+    ],
+    "interests": ["Web Development", "API Design", "UI/UX Design", "Cloud Computing", "Open Source"]
+  },
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Experience",
+      "href": "#experience"
+    },
+    {
+      "label": "Credentials",
+      "href": "#credentials"
+    },
+    {
+      "label": "Skills",
+      "href": "#skills"
+    },
+    {
+      "label": "Projects",
+      "href": "#projects"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Backend Developer",
+      "company": "Devneural Solutions",
+      "period": "Feb 2025 – Apr 2025",
+      "description": "Worked on multiple full-stack projects focused on building scalable RESTful APIs using Django and Django REST Framework. Integrated cloud services and optimized application performance.",
+      "achievements": [
+        "Worked on 4+ full-stack projects focused on building scalable RESTful APIs using Django and Django REST Framework",
+        "Integrated Azure Email Services and Azure Communication Services for 100% automated notifications",
+        "Diagnosed and resolved production bugs, reducing downtime by 15%",
+        "Optimized database schema and queries, improving API performance by 20%"
+      ],
+      "technologies": ["Django", "Django REST Framework", "Azure", "PostgreSQL", "Python"]
+    },
+    {
+      "title": "Full-Stack Developer Intern",
+      "company": "Technology Business Incubator, K.I.E.T",
+      "period": "Nov 2024 – Jan 2025",
+      "description": "Contributed to multiple full-stack applications across various domains with focus on cloud integrations and performance optimization.",
+      "achievements": [
+        "Delivered 3+ successful deployments with various cloud integrations",
+        "Contributed to 5+ full-stack applications across domains",
+        "Improved app performance by 20%",
+        "Collaborated with 6+ team members to maintain production-level apps"
+      ],
+      "technologies": ["React", "Django", "Cloud Services", "Git", "Team Collaboration"]
+    },
+    {
+      "title": "Web Internship Coordinator",
+      "company": "Microsoft Learn Student Ambassador, K.I.E.T",
+      "period": "Aug 2024 – Oct 2024",
+      "description": "Managed internship programs and enhanced web platform UI while coordinating with multiple stakeholders.",
+      "achievements": [
+        "Managed 400+ intern candidates with a 95% program success rate",
+        "Enhanced MLSA KIET website UI, improving engagement by 25%",
+        "Received 94% positive feedback from participants"
+      ],
+      "technologies": ["Web Development", "UI/UX", "Project Management", "Microsoft Technologies"]
+    }
+  ],
+  "credentials": {
+    "certifications": [
+      {
+        "name": "Python Pro Bootcamp By Dr. Angela Yu",
+        "issuer": "Udemy",
+        "date": "June 2023",
+        "logo": "/generic-military-logo.png"
+      },
+      {
+        "name": "Django Web Framework By Meta",
+        "issuer": "Coursera",
+        "date": "December 2023",
+        "logo": "/generic-art-school-logo.png"
+      },
+      {
+        "name": "Principles of UI/UX Design By Meta",
+        "issuer": "Coursera",
+        "date": "November 2023",
+        "logo": "/ideo-logo.png"
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Technology (Computer Science)",
+        "institution": "K.I.E.T Group of Institutions, A.K.T.U",
+        "year": "2022 – 2026 (77.2%)",
+        "logo": "/calarts-logo.png"
+      },
+      {
+        "degree": "Intermediate (94%)",
+        "institution": "Vanasthali Public School",
+        "year": "2022",
+        "logo": "/generic-art-school-logo.png"
+      },
+      {
+        "degree": "High School (92.4%)",
+        "institution": "Vanasthali Public School",
+        "year": "2020",
+        "logo": "/generic-art-school-logo.png"
+      }
+    ],
+    "skills": [
+      "Full-Stack Development",
+      "API Design",
+      "Database Optimization",
+      "Cloud Integration",
+      "UI/UX Design",
+      "Performance Optimization",
+      "Team Collaboration",
+      "Project Management"
+    ]
+  },
+  "technicalSkills": {
+    "languages": ["Python", "JavaScript", "HTML/CSS", "Java"],
+    "frameworks": ["Django", "Django REST Framework", "React JS", "Next JS", "Tailwind CSS", "Jest"],
+    "tools": ["PostgreSQL", "Git", "GitHub", "Postman", "Visual Studio Code", "PyCharm", "Figma"],
+    "uiux": ["Interface Design", "User Research", "Wireframing", "Prototyping"]
+  }
+}
