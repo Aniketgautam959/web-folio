@@ -10,12 +10,12 @@ const metaInfo = getMetaInfo()
 export const metadata = {
   title: metaInfo.title,
   description: metaInfo.description,
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={inter.className}>
         <AnimationProvider>{children}</AnimationProvider>
       </body>

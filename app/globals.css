@@ -3,28 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --background: 255 255 255;
-  --foreground: 0 0 0;
-  --card: 255 255 255;
-  --card-foreground: 0 0 0;
-  --popover: 255 255 255;
-  --popover-foreground: 0 0 0;
-  --primary: 280 100% 70%;
-  --primary-foreground: 0 0 0;
-  --secondary: 240 5% 96%;
-  --secondary-foreground: 0 0 0;
-  --muted: 240 5% 96%;
-  --muted-foreground: 240 5% 45%;
-  --accent: 240 5% 96%;
-  --accent-foreground: 0 0 0;
-  --destructive: 0 100% 50%;
-  --destructive-foreground: 255 255 255;
-  --border: 240 5% 92%;
-  --input: 240 5% 92%;
-  --ring: 280 100% 70%;
-}
-
-.dark {
   --background: 0 0% 0%;
   --foreground: 0 0% 100%;
   --card: 240 10% 4%;
@@ -51,17 +29,8 @@ html {
 }
 
 body {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.light {
-  background-color: white;
-  color: black;
-}
-
-body.dark {
-  background-color: black;
-  color: white;
+  /* transition: background-color 0.3s ease, color 0.3s ease; */
+  /* Removed this line */
 }
 
 @layer utilities {

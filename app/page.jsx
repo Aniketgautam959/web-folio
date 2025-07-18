@@ -14,7 +14,6 @@ import { ProfileAbout } from "@/components/profile-about"
 import { ProfileContact } from "@/components/profile-contact"
 import { CredentialsSection } from "@/components/credentials-section"
 import { PortfolioHeader } from "@/components/portfolio-header"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { getExperienceInfo, getTechnicalSkillsInfo } from "@/lib/data"
 
 const SkillTagComponent = ({ children }) => {
@@ -212,9 +211,6 @@ export default function Home() {
 
       {/* Project Modal */}
       <ProjectModal project={selectedProject} isOpen={isModalOpen} onClose={closeModal} />
-
-      {/* Theme Toggle */}
-      <ThemeToggle />
     </main>
   )
 }
