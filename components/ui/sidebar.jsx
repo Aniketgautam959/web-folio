@@ -1,40 +1,38 @@
 "use client"
-
-import * as React from "react"
-import { cva } from "class-variance-authority"
+import { Link } from "next/link"
+import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
 
-const sidebarVariants = cva("flex h-full flex-col overflow-hidden border-r bg-background", {
-  variants: {
-    variant: {
-      default: "w-64",
-      collapsed: "w-16",
-    },
-  },
-  defaultVariants: {
-    variant: "default",
-  },
-})
+const Sidebar = ({ className, items, ...props }) => {
+  const pathname = usePathname()
 
-const Sidebar = React.forwardRef(({ className, variant, ...props }, ref) => (
-  <aside ref={ref} className={cn(sidebarVariants({ variant }), className)} {...props} />
-))
-Sidebar.displayName = "Sidebar"
+  if (!items?.length) return null
 
-const SidebarHeader = React.forwardRef(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex items-center justify-between p-4", className)} {...props} />
-))
-SidebarHeader.displayName = "SidebarHeader"
+  return (
+    <div className={cn("flex w-full flex-col gap-2", className)} {...props}>
+      {items.map((item) => {
+        const Icon = item.icon
+        return (
+          item.href && (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={cn(
+                "group flex w-full items-center rounded-md border border-transparent px-3 py-2 hover:underline",
+                item.href.includes(pathname) ? "bg-muted font-medium text-foreground" : "text-muted-foreground",
+              )}
+              target={item.external ? "_blank" : ""}
+              rel={item.external ? "noreferrer" : ""}
+            >
+              {Icon && <Icon className="mr-2 h-4 w-4" />}
+              {item.title}
+            </Link>
+          )
+        )
+      })}
+    </div>
+  )
+}
 
-const SidebarContent = React.forwardRef(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex-1 overflow-y-auto p-4", className)} {...props} />
-))
-SidebarContent.displayName = "SidebarContent"
-
-const SidebarFooter = React.forwardRef(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("border-t p-4", className)} {...props} />
-))
-SidebarFooter.displayName = "SidebarFooter"
-
-export { Sidebar, SidebarHeader, SidebarContent, SidebarFooter }
+export { Sidebar }

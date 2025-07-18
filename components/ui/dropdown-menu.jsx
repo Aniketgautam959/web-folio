@@ -1,9 +1,5 @@
 "use client"
 
-import { DropdownMenuPortal } from "@/components/ui/dropdown-menu"
-
-import { DropdownMenuGroup } from "@/components/ui/dropdown-menu"
-
 import * as React from "react"
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
 import { Check, ChevronRight, Circle } from "lucide-react"
@@ -14,7 +10,9 @@ const DropdownMenu = DropdownMenuPrimitive.Root
 
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
 
-const DropupMenuPortal = DropdownMenuPrimitive.Portal
+const DropdownMenuGroup = DropdownMenuPrimitive.Group
+
+const DropdownMenuPortal = DropdownMenuPrimitive.Portal
 
 const DropdownMenuSub = DropdownMenuPrimitive.Sub
 

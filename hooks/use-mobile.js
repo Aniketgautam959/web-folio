@@ -7,14 +7,14 @@ export function useMobile() {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768) // Adjust breakpoint as needed
+      setIsMobile(window.innerWidth < 768) // Tailwind's 'md' breakpoint is 768px
     }
 
     checkMobile() // Initial check
-    window.addEventListener("resize", checkMobile)
+    window.addEventListener("resize", checkMobile) // Add event listener for window resize
 
     return () => {
-      window.removeEventListener("resize", checkMobile)
+      window.removeEventListener("resize", checkMobile) // Clean up the event listener
     }
   }, [])
 
