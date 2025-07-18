@@ -67,7 +67,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
                 <div className="relative h-fit sm:h-80 rounded-xl overflow-hidden border-zinc-800 dark:border-zinc-800 flex items-center justify-center">
                   <Image
                     src={
-                      project.gallery[currentImageIndex].url ||
+                      project.gallery[currentImageIndex]?.url ||
                       "/placeholder.svg"
                     }
                     alt={
@@ -86,14 +86,14 @@ export function ProjectModal({ project, isOpen, onClose }) {
                       onClick={prevImage}
                       size="icon"
                       variant="ghost"
-                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white">
+                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full">
                       <ChevronLeft className="h-4 w-4" />
                     </Button>
                     <Button
                       onClick={nextImage}
                       size="icon"
                       variant="ghost"
-                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white">
+                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full">
                       <ChevronRight className="h-4 w-4" />
                     </Button>
                   </>
@@ -113,7 +113,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`relative w-16 h-16 rounded-md overflow-hidden border-2 flex-shrink-0 ${
+                      className={`relative w-16 rounded-sm p-1 overflow-hidden border-2 flex-shrink-0 ${
                         index === currentImageIndex
                           ? "border-purple-400"
                           : "border-zinc-700"
@@ -193,7 +193,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
             </div>
             <div>
               <h4 className="text-sm font-medium text-zinc-400 dark:text-zinc-400">
-                Client
+                Type
               </h4>
               <p className="text-sm text-white dark:text-white">
                 {project.client || "Personal Project"}
@@ -206,7 +206,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
             {project.liveUrl && (
               <Button
                 asChild
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+                className="bg-purple-600 rounded-xl hover:bg-purple-400 text-white">
                 <a
                   href={project.liveUrl}
                   target="_blank"
@@ -220,7 +220,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
               <Button
                 asChild
                 variant="outline"
-                className="border-zinc-700 text-zinc-300 hover:text-white bg-transparent">
+                className="border-zinc-700 text-zinc-300 hover:text-white bg-transparent rounded-xl">
                 <a
                   href={project.githubUrl}
                   target="_blank"

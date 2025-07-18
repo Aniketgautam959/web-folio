@@ -58,7 +58,9 @@ export function PortfolioHeader() {
             {/* Logo */}
             <Link href="/" className="flex items-center group">
               <div className="w-10 h-10 rounded-full bg-zinc-200/50 dark:bg-white/10 backdrop-blur-sm border border-zinc-300/50 dark:border-white/20 flex items-center justify-center hover:bg-zinc-300/50 dark:hover:bg-white/20 transition-all duration-300">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-r from-purple-400 to-pink-500"></div>
+                <span className="text-sm font-bold bg-purple-400 bg-clip-text text-transparent">
+                  AM
+                </span>
               </div>
             </Link>
 
