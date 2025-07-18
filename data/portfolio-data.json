@@ -7,7 +7,7 @@
     "name": "Aditya Madwal",
     "title": "Full-Stack Developer",
     "location": "Ghaziabad, India",
-    "avatar": "/confident-professional.png",
+    "avatar": "/me.jpg",
     "email": "adityamadwal@gmail.com",
     "phone": "+91 8130492789",
     "workingHours": "Monday - Friday, 9am - 6pm IST",
@@ -42,17 +42,21 @@
       {
         "name": "English",
         "proficiency": "Fluent",
-        "level": 90,
         "flag": "🇺🇸"
       },
       {
         "name": "Hindi",
         "proficiency": "Native",
-        "level": 100,
         "flag": "🇮🇳"
       }
     ],
-    "interests": ["Web Development", "API Design", "UI/UX Design", "Cloud Computing", "Open Source"]
+    "interests": [
+      "Web Development",
+      "API Design",
+      "UI/UX Design",
+      "Cloud Computing",
+      "Open Source"
+    ]
   },
   "navigation": [
     {
@@ -88,7 +92,13 @@
         "Diagnosed and resolved production bugs, reducing downtime by 15%",
         "Optimized database schema and queries, improving API performance by 20%"
       ],
-      "technologies": ["Django", "Django REST Framework", "Azure", "PostgreSQL", "Python"]
+      "technologies": [
+        "Django",
+        "Django REST Framework",
+        "Azure",
+        "PostgreSQL",
+        "Python"
+      ]
     },
     {
       "title": "Full-Stack Developer Intern",
@@ -101,7 +111,13 @@
         "Improved app performance by 20%",
         "Collaborated with 6+ team members to maintain production-level apps"
       ],
-      "technologies": ["React", "Django", "Cloud Services", "Git", "Team Collaboration"]
+      "technologies": [
+        "React",
+        "Django",
+        "Cloud Services",
+        "Git",
+        "Team Collaboration"
+      ]
     },
     {
       "title": "Web Internship Coordinator",
@@ -113,7 +129,12 @@
         "Enhanced MLSA KIET website UI, improving engagement by 25%",
         "Received 94% positive feedback from participants"
       ],
-      "technologies": ["Web Development", "UI/UX", "Project Management", "Microsoft Technologies"]
+      "technologies": [
+        "Web Development",
+        "UI/UX",
+        "Project Management",
+        "Microsoft Technologies"
+      ]
     }
   ],
   "credentials": {
@@ -122,19 +143,19 @@
         "name": "Python Pro Bootcamp By Dr. Angela Yu",
         "issuer": "Udemy",
         "date": "June 2023",
-        "logo": "/generic-military-logo.png"
+        "logo": "/udemy.jpg"
       },
       {
         "name": "Django Web Framework By Meta",
         "issuer": "Coursera",
         "date": "December 2023",
-        "logo": "/generic-art-school-logo.png"
+        "logo": "/coursera.png"
       },
       {
         "name": "Principles of UI/UX Design By Meta",
         "issuer": "Coursera",
         "date": "November 2023",
-        "logo": "/ideo-logo.png"
+        "logo": "/coursera.png"
       }
     ],
     "education": [
@@ -142,19 +163,19 @@
         "degree": "Bachelor of Technology (Computer Science)",
         "institution": "K.I.E.T Group of Institutions, A.K.T.U",
         "year": "2022 – 2026 (77.2%)",
-        "logo": "/calarts-logo.png"
+        "logo": "/kiet.jpg"
       },
       {
         "degree": "Intermediate (94%)",
         "institution": "Vanasthali Public School",
         "year": "2022",
-        "logo": "/generic-art-school-logo.png"
+        "logo": "/vanasthali.png"
       },
       {
         "degree": "High School (92.4%)",
         "institution": "Vanasthali Public School",
         "year": "2020",
-        "logo": "/generic-art-school-logo.png"
+        "logo": "/vanasthali.png"
       }
     ],
     "skills": [
@@ -170,8 +191,23 @@
   },
   "technicalSkills": {
     "languages": ["Python", "JavaScript", "HTML/CSS", "Java"],
-    "frameworks": ["Django", "Django REST Framework", "React JS", "Next JS", "Tailwind CSS", "Jest"],
-    "tools": ["PostgreSQL", "Git", "GitHub", "Postman", "Visual Studio Code", "PyCharm", "Figma"],
+    "frameworks": [
+      "Django",
+      "Django REST Framework",
+      "React JS",
+      "Next JS",
+      "Tailwind CSS",
+      "Jest"
+    ],
+    "tools": [
+      "PostgreSQL",
+      "Git",
+      "GitHub",
+      "Postman",
+      "Visual Studio Code",
+      "PyCharm",
+      "Figma"
+    ],
     "uiux": ["Interface Design", "User Research", "Wireframing", "Prototyping"]
   }
 }
