@@ -79,13 +79,10 @@ export function PortfolioHeader() {
                     className={cn(
                       "text-sm font-medium transition-all duration-300 relative",
                       isActive
-                        ? "text-black dark:text-white"
+                        ? "text-black dark:text-purple-600"
                         : "text-zinc-700/70 dark:text-white/70 hover:text-black dark:hover:text-white"
                     )}>
                     {item.label}
-                    {isActive && (
-                      <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full"></div>
-                    )}
                   </Link>
                 );
               })}

@@ -196,12 +196,6 @@ export default function Home() {
                         Recent Projects
                       </h3>
                     </div>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="text-xs sm:text-sm px-2 sm:px-3 text-zinc-600 dark:text-zinc-400">
-                      View All
-                    </Button>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">

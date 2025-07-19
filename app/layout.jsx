@@ -1,17 +1,17 @@
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { AnimationProvider } from "@/contexts/animation-context"
-import { getMetaInfo } from "@/lib/data"
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { AnimationProvider } from "@/contexts/animation-context";
+import { getMetaInfo } from "@/lib/data";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
-const metaInfo = getMetaInfo()
+const metaInfo = getMetaInfo();
 
 export const metadata = {
   title: metaInfo.title,
   description: metaInfo.description,
   generator: "v0.dev",
-}
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -20,5 +20,5 @@ export default function RootLayout({ children }) {
         <AnimationProvider>{children}</AnimationProvider>
       </body>
     </html>
-  )
+  );
 }
