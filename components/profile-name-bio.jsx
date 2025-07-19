@@ -58,6 +58,20 @@ export function ProfileNameBio() {
         <div className="flex justify-center">
           <SocialLinks socialLinks={personalInfo.social} />
         </div>
+        <div className="flex w-full justify-center items-center">
+          <button
+            onClick={() => {
+              const link = document.createElement("a");
+              link.href = "/resume.pdf";
+              link.download = "resume.pdf";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
+            className="rounded-full bg-purple-500/10 hover:bg-purple-500 hover:text-white transition-all duration-300 text-purple-400 font-medium py-2 px-6 w-fit border border-purple-400/50 hover:border-purple-500 shadow-sm hover:shadow-purple-500/20">
+            Download Resume
+          </button>
+        </div>
       </CardContent>
     </Card>
   );
