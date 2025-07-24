@@ -11,6 +11,9 @@ export const metadata = {
   title: metaInfo.title,
   description: metaInfo.description,
   generator: "v0.dev",
+  icons: {
+    icon: metaInfo.favicon,
+  },
 };
 
 export default function RootLayout({ children }) {

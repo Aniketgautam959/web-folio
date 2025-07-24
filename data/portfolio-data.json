@@ -1,7 +1,8 @@
 {
   "meta": {
     "title": "Aditya Madwal | Full-Stack Developer",
-    "description": "Portfolio website showcasing full-stack development work and skills"
+    "description": "Portfolio website showcasing full-stack development work and skills",
+    "favicon": "/logo.png"
   },
   "personal": {
     "name": "Aditya Madwal",
