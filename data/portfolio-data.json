@@ -97,6 +97,7 @@
         "Django",
         "Django REST Framework",
         "Azure",
+        "Git",
         "PostgreSQL",
         "Python"
       ]
@@ -114,9 +115,13 @@
       ],
       "technologies": [
         "React",
-        "Django",
-        "Cloud Services",
+        "Next.js",
+        "Node.js",
+        "MongoDB",
+        "Firebase",
         "Git",
+        "Django",
+        "Django REST Framework",
         "Team Collaboration"
       ]
     },
