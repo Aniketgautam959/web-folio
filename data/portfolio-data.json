@@ -115,7 +115,7 @@
       {
         "degree": "Bachelor of Technology (Computer Science)",
         "institution": "KIET Group of Institutions, A.K.T.U",
-        "year": "2022 – 2026 (CGPA: 8.22/10)",
+        "year": "2022 – 2026 (CGPA: 8.22/10) (Current)",
         "logo": "/kiet.jpg"
       },
       {
@@ -162,40 +162,114 @@
   },
   "projects": [
     {
+      "id": "expensifyai",
+      "slug": "expensifyai",
+      "title": "ExpensifyAI - AI Expense Tracker",
       "name": "ExpensifyAI - AI Expense Tracker",
+      "category": "Full-Stack Web App",
       "period": "Sep 2025",
+      "timeline": "Sep 2025",
+      "role": "Full-Stack Developer",
+      "client": "Personal Project",
       "github": "https://github.com/Aniketgautam959/ExpensifyAI",
-      "description": "AI-driven tracker for expense management with automated categorization and role-based sessions.",
+      "githubUrl": "https://github.com/Aniketgautam959/ExpensifyAI",
+      "liveUrl": "https://expensify-ai-mwrr.vercel.app/",
+      "shortDescription": "AI-driven tracker for expense management with automated categorization and role-based sessions.",
+      "description": [
+        "ExpensifyAI is an intelligent expense tracking application that leverages AI algorithms to automatically categorize and manage personal and business expenses. The platform provides role-based access control, allowing different user types to manage their financial data efficiently.",
+        "Built with modern web technologies including Next.js, Prisma ORM, and PostgreSQL, the application offers real-time expense tracking, automated categorization, and comprehensive reporting features.",
+        "The AI-powered categorization system learns from user behavior and provides increasingly accurate expense classification, reducing manual data entry time by over 50%."
+      ],
+      "features": [
+        "AI-powered expense categorization with 50% higher accuracy",
+        "Role-based user sessions and access control",
+        "Real-time expense tracking and reporting",
+        "Automated data import from various sources",
+        "Secure OAuth and social login integration",
+        "Responsive design for mobile and desktop"
+      ],
       "achievements": [
         "Automated expense categorization with 50% higher accuracy",
         "Optimized queries and REST APIs, reducing latency by 35%",
         "Enabled multi-user access with OAuth, social logins, and Clerk authentication"
       ],
-      "technologies": ["Next.js", "Prisma", "PostgreSQL", "Clerk", "AI Algorithms"]
+      "technologies": ["Next.js", "Prisma", "PostgreSQL", "Clerk", "AI Algorithms"],
+      "thumbnailImage": "/expensifyai/home.png",
+      "gallery": [
+        {
+          "url": "/expensifyai/home.png",
+          "caption": "Home Dashboard with expense overview"
+        },
+        {
+          "url": "/expensifyai/dashboard.png",
+          "caption": "Main dashboard with categorized expenses"
+        },
+        {
+          "url": "/expensifyai/dashboard-2.png",
+          "caption": "Advanced analytics and reporting"
+        },
+        {
+          "url": "/expensifyai/auth.png",
+          "caption": "Secure authentication system"
+        },
+        {
+          "url": "/expensifyai/about.png",
+          "caption": "About page with feature highlights"
+        },
+        {
+          "url": "/expensifyai/tech-stack.png",
+          "caption": "Technology stack and architecture"
+        }
+      ]
     },
     {
+      "id": "scholarsync",
+      "slug": "scholarsync",
+      "title": "ScholarSync - Student Advisory",
       "name": "ScholarSync - Student Advisory",
+      "category": "Educational Platform",
       "period": "Jul 2024 – Present",
+      "timeline": "Jul 2024 – Present",
+      "role": "Full-Stack Developer",
+      "client": "Personal Project",
       "github": "https://github.com/Aniketgautam959/ScholarSync",
-      "description": "Career advisory platform integrating APIs for real-time guidance.",
+      "githubUrl": "https://github.com/Aniketgautam959/ScholarSync",
+      "liveUrl": null,
+      "shortDescription": "Career advisory platform integrating APIs for real-time guidance and student resources.",
+      "description": [
+        "ScholarSync is a comprehensive student advisory platform that connects students with career guidance resources, internship opportunities, and educational materials. The platform integrates with various government and educational APIs to provide real-time information.",
+        "The application features a modern, responsive design built with Next.js and MongoDB, offering personalized recommendations based on student profiles and career interests.",
+        "Key features include real-time collaboration tools, push notifications for important updates, and secure authentication systems to protect student data."
+      ],
+      "features": [
+        "Real-time career guidance and advisory services",
+        "Integration with NPTEL and government APIs",
+        "Personalized student resource recommendations",
+        "Push notifications for important updates",
+        "Secure authentication and user management",
+        "Mobile-responsive design for accessibility"
+      ],
       "achievements": [
         "Integrated NPTEL and government APIs for student resources",
         "Enhanced guidance efficiency by 40% with real-time collaboration",
         "Implemented push notifications and secure authentication"
       ],
-      "technologies": ["Next.js", "JavaScript", "Tailwind CSS", "MongoDB"]
-    },
-    {
-      "name": "AI Chat Application",
-      "period": "Aug 2025",
-      "github": "https://github.com/Aniketgautam959/ai-chat-app",
-      "description": "Real-time AI-powered chat application using Google Gemini API.",
-      "achievements": [
-        "Created dark-themed UI with glassmorphism and responsive design",
-        "Implemented authentication and handled 100+ concurrent users",
-        "Reduced response time by 25% through optimized API calls"
-      ],
-      "technologies": ["React.js", "Google Gemini API", "Tailwind CSS"]
+      "technologies": ["Next.js", "JavaScript", "Tailwind CSS", "MongoDB"],
+      "thumbnailImage": "/scholarsync/landing.png",
+      "gallery": [
+        {
+          "url": "/scholarsync/landing.png",
+          "caption": "Landing page with platform overview"
+        },
+        {
+          "url": "/scholarsync/dashboard-new.png",
+          "caption": "Student dashboard with personalized content"
+        },
+        {
+          "url": "/scholarsync/internships.png",
+          "caption": "Internship opportunities and applications"
+        }
+      ]
     }
   ]
 }

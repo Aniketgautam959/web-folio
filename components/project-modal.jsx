@@ -23,6 +23,11 @@ export function ProjectModal({ project, isOpen, onClose }) {
 
   if (!project) return null;
 
+  // Ensure currentImageIndex is within bounds
+  const safeImageIndex = project.gallery && project.gallery.length > 0 
+    ? Math.min(currentImageIndex, project.gallery.length - 1) 
+    : 0;
+
   const nextImage = () => {
     if (project.gallery) {
       setCurrentImageIndex((prev) => (prev + 1) % project.gallery.length);
@@ -67,12 +72,12 @@ export function ProjectModal({ project, isOpen, onClose }) {
                 <div className="relative h-fit sm:h-80 rounded-xl overflow-hidden border-zinc-800 dark:border-zinc-800 flex items-center justify-center">
                   <Image
                     src={
-                      project.gallery[currentImageIndex]?.url ||
+                      project.gallery[safeImageIndex]?.url ||
                       "/placeholder.svg"
                     }
                     alt={
-                      project.gallery[currentImageIndex].caption ||
-                      `Screenshot ${currentImageIndex + 1}`
+                      project.gallery[safeImageIndex]?.caption ||
+                      `Screenshot ${safeImageIndex + 1}`
                     }
                     width={800}
                     height={500}
@@ -99,9 +104,9 @@ export function ProjectModal({ project, isOpen, onClose }) {
                   </>
                 )}
 
-                {project.gallery[currentImageIndex].caption && (
+                {project.gallery[safeImageIndex]?.caption && (
                   <div className="mt-2 text-sm text-zinc-400 dark:text-zinc-400 text-center">
-                    {project.gallery[currentImageIndex].caption}
+                    {project.gallery[safeImageIndex]?.caption}
                   </div>
                 )}
               </div>
@@ -114,7 +119,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
                       className={`relative w-16 rounded-sm p-1 overflow-hidden border-2 flex-shrink-0 ${
-                        index === currentImageIndex
+                        index === safeImageIndex
                           ? "border-blue-400"
                           : "border-zinc-700"
                       }`}>
