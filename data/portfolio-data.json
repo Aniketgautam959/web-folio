@@ -2,7 +2,7 @@
   "meta": {
     "title": "Aniket Gautam | Full-Stack Developer",
     "description": "Portfolio website showcasing full-stack development work, projects, and skills",
-    "favicon": "/logo.png"
+    "favicon": "/favicon.svg"
   },
   "personal": {
     "name": "Aniket Gautam",
@@ -207,18 +207,6 @@
         {
           "url": "/expensifyai/dashboard-2.png",
           "caption": "Advanced analytics and reporting"
-        },
-        {
-          "url": "/expensifyai/auth.png",
-          "caption": "Secure authentication system"
-        },
-        {
-          "url": "/expensifyai/about.png",
-          "caption": "About page with feature highlights"
-        },
-        {
-          "url": "/expensifyai/tech-stack.png",
-          "caption": "Technology stack and architecture"
         }
       ]
     },
