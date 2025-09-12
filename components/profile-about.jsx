@@ -13,13 +13,13 @@ export function ProfileAbout() {
         {/* Professional Focus */}
         <div className="space-y-3">
           <h3 className="text-sm font-medium text-zinc-600 dark:text-zinc-400 flex items-center">
-            <Briefcase className="w-4 h-4 mr-2 text-purple-600 dark:text-purple-400" />
+            <Briefcase className="w-4 h-4 mr-2 text-blue-600 dark:text-blue-400" />
             Professional Focus
           </h3>
           <div className="space-y-2">
             {aboutInfo.focus.map((item, index) => (
               <div key={index} className="flex items-start">
-                <span className="text-purple-600 dark:text-purple-400 mr-2">
+                <span className="text-blue-600 dark:text-blue-400 mr-2">
                   •
                 </span>
                 <p className="text-sm text-zinc-700 dark:text-zinc-300">
@@ -33,7 +33,7 @@ export function ProfileAbout() {
         {/* Languages */}
         <div className="space-y-3">
           <h3 className="text-sm font-medium text-zinc-600 dark:text-zinc-400 flex items-center">
-            <Languages className="w-4 h-4 mr-2 text-purple-600 dark:text-purple-400" />
+            <Languages className="w-4 h-4 mr-2 text-blue-600 dark:text-blue-400" />
             Languages
           </h3>
           <div className="flex flex-wrap gap-2">
@@ -51,7 +51,7 @@ export function ProfileAbout() {
         {/* Interests */}
         <div className="space-y-3">
           <h3 className="text-sm font-medium text-zinc-600 dark:text-zinc-400 flex items-center">
-            <User className="w-4 h-4 mr-2 text-purple-600 dark:text-purple-400" />
+            <User className="w-4 h-4 mr-2 text-blue-600 dark:text-blue-400" />
             Interests
           </h3>
           <div className="flex flex-wrap gap-2">

@@ -15,7 +15,7 @@ export function CredentialsSection() {
         <Card className="bg-zinc-100/70 dark:bg-zinc-900/70 border-zinc-300 dark:border-zinc-800 backdrop-blur-sm h-full rounded-xl">
           <CardContent className="p-4 sm:p-6">
             <div className="flex items-center mb-4 sm:mb-6">
-              <Award className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400" />
+              <Award className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
               <h3 className="text-lg font-medium text-black dark:text-white">
                 Certifications
               </h3>
@@ -56,7 +56,7 @@ export function CredentialsSection() {
         <Card className="bg-zinc-100/70 dark:bg-zinc-900/70 border-zinc-300 dark:border-zinc-800 backdrop-blur-sm h-full rounded-xl">
           <CardContent className="p-4 sm:p-6">
             <div className="flex items-center mb-4 sm:mb-6">
-              <GraduationCap className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400" />
+              <GraduationCap className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
               <h3 className="text-lg font-medium text-black dark:text-white">
                 Education
               </h3>
@@ -97,7 +97,7 @@ export function CredentialsSection() {
         <Card className="bg-zinc-100/70 dark:bg-zinc-900/70 border-zinc-300 dark:border-zinc-800 backdrop-blur-sm h-full rounded-xl">
           <CardContent className="p-4 sm:p-6">
             <div className="flex items-center mb-4 sm:mb-6">
-              <Code className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400" />
+              <Code className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
               <h3 className="text-lg font-medium text-black dark:text-white">
                 Skills & Expertise
               </h3>

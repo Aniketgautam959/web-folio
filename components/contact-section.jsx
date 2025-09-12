@@ -11,7 +11,7 @@ export function ContactSection() {
           {/* Contact Information */}
           <div className="bg-zinc-200/50 dark:bg-zinc-800/50 p-6 lg:p-8">
             <div className="flex items-center mb-6">
-              <UserIcon className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400" />
+              <UserIcon className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
               <h3 className="text-lg font-medium text-black dark:text-white">Get in Touch</h3>
             </div>
 
@@ -23,12 +23,12 @@ export function ContactSection() {
 
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <Mail className="w-5 h-5 mr-3 text-purple-600 dark:text-purple-400 mt-0.5" />
+                  <Mail className="w-5 h-5 mr-3 text-blue-600 dark:text-blue-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium text-black dark:text-white">Email</h4>
                     <a
                       href="mailto:jane.doe@example.com"
-                      className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                      className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
                       jane.doe@example.com
                     </a>
@@ -36,12 +36,12 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start">
-                  <Phone className="w-5 h-5 mr-3 text-purple-600 dark:text-purple-400 mt-0.5" />
+                  <Phone className="w-5 h-5 mr-3 text-blue-600 dark:text-blue-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium text-black dark:text-white">Phone</h4>
                     <a
                       href="tel:+14155552671"
-                      className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                      className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
                       +1 (415) 555-2671
                     </a>
@@ -49,7 +49,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start">
-                  <MapPin className="w-5 h-5 mr-3 text-purple-600 dark:text-purple-400 mt-0.5" />
+                  <MapPin className="w-5 h-5 mr-3 text-blue-600 dark:text-blue-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium text-black dark:text-white">Location</h4>
                     <p className="text-sm text-zinc-600 dark:text-zinc-400">San Francisco, California</p>
@@ -57,7 +57,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start">
-                  <Clock className="w-5 h-5 mr-3 text-purple-600 dark:text-purple-400 mt-0.5" />
+                  <Clock className="w-5 h-5 mr-3 text-blue-600 dark:text-blue-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium text-black dark:text-white">Working Hours</h4>
                     <p className="text-sm text-zinc-600 dark:text-zinc-400">Monday - Friday, 9am - 5pm PST</p>

@@ -7,7 +7,7 @@ export function ExperienceCard({ title, company, period, description, achievemen
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
         <div>
           <h4 className="font-medium text-base sm:text-lg text-black dark:text-white">{title}</h4>
-          <div className="text-sm text-purple-600 dark:text-purple-400">{company}</div>
+          <div className="text-sm text-blue-600 dark:text-blue-400">{company}</div>
         </div>
         <div className="text-xs text-zinc-600 dark:text-zinc-400 bg-zinc-200 dark:bg-zinc-800/70 px-2 py-1 sm:px-3 sm:py-1 rounded-full self-start mt-1 sm:mt-0 sm:self-auto">
           {period}
@@ -21,7 +21,7 @@ export function ExperienceCard({ title, company, period, description, achievemen
         <ul className="space-y-2">
           {achievements.map((achievement, index) => (
             <li key={index} className="flex text-sm text-zinc-700 dark:text-zinc-300">
-              <CheckCircle2 className="w-4 h-4 mr-2 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-4 h-4 mr-2 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
               <span>{achievement}</span>
             </li>
           ))}

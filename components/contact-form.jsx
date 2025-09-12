@@ -44,7 +44,7 @@ export function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="flex flex-col items-center justify-center p-6">
-        <div className="w-16 h-16 mb-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+        <div className="w-16 h-16 mb-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
           <SendIcon className="w-6 h-6 text-white" />
         </div>
         <h4 className="text-lg font-medium mb-2 text-black dark:text-white">Message Sent!</h4>
@@ -75,7 +75,7 @@ export function ContactForm() {
                 <FormControl>
                   <Input
                     placeholder="Your name"
-                    className="bg-zinc-200/50 dark:bg-zinc-800/50 border-zinc-300 dark:border-zinc-700 focus:border-purple-500 dark:focus:border-purple-500 text-black dark:text-white"
+                    className="bg-zinc-200/50 dark:bg-zinc-800/50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 dark:focus:border-blue-500 text-black dark:text-white"
                     {...field}
                   />
                 </FormControl>
@@ -94,7 +94,7 @@ export function ContactForm() {
                   <Input
                     type="email"
                     placeholder="your.email@example.com"
-                    className="bg-zinc-200/50 dark:bg-zinc-800/50 border-zinc-300 dark:border-zinc-700 focus:border-purple-500 dark:focus:border-purple-500 text-black dark:text-white"
+                    className="bg-zinc-200/50 dark:bg-zinc-800/50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 dark:focus:border-blue-500 text-black dark:text-white"
                     {...field}
                   />
                 </FormControl>
@@ -142,7 +142,7 @@ export function ContactForm() {
 
         <Button
           type="submit"
-          className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+          className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600"
           disabled={form.formState.isSubmitting}
         >
           {form.formState.isSubmitting ? (

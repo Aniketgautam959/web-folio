@@ -58,7 +58,7 @@ export function PortfolioHeader() {
             {/* Logo */}
             <Link href="/" className="flex items-center group">
               <div className="w-10 h-10 rounded-full bg-zinc-200/50 dark:bg-white/10 backdrop-blur-sm border border-zinc-300/50 dark:border-white/20 flex items-center justify-center hover:bg-zinc-300/50 dark:hover:bg-white/20 transition-all duration-300">
-                <span className="text-sm font-bold bg-purple-400 bg-clip-text text-transparent">
+                <span className="text-sm font-bold bg-blue-400 bg-clip-text text-transparent">
                   AG
                 </span>
               </div>
@@ -79,7 +79,7 @@ export function PortfolioHeader() {
                     className={cn(
                       "text-sm font-medium transition-all duration-300 relative",
                       isActive
-                        ? "text-black dark:text-purple-600"
+                        ? "text-black dark:text-blue-600"
                         : "text-zinc-700/70 dark:text-white/70 hover:text-black dark:hover:text-white"
                     )}>
                     {item.label}

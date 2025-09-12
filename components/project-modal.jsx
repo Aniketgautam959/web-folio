@@ -49,7 +49,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
         <div className="space-y-6">
           {/* Project Header */}
           <div className="space-y-2">
-            <div className="text-sm text-purple-400 dark:text-purple-400">
+            <div className="text-sm text-blue-400 dark:text-blue-400">
               {project.category}
             </div>
             <p className="text-zinc-300 dark:text-zinc-300">
@@ -115,7 +115,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
                       onClick={() => setCurrentImageIndex(index)}
                       className={`relative w-16 rounded-sm p-1 overflow-hidden border-2 flex-shrink-0 ${
                         index === currentImageIndex
-                          ? "border-purple-400"
+                          ? "border-blue-400"
                           : "border-zinc-700"
                       }`}>
                       <Image
@@ -206,7 +206,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
             {project.liveUrl && (
               <Button
                 asChild
-                className="bg-purple-600 rounded-xl hover:bg-purple-400 text-white">
+                className="bg-blue-600 rounded-xl hover:bg-blue-400 text-white">
                 <a
                   href={project.liveUrl}
                   target="_blank"

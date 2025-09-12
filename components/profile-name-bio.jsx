@@ -15,7 +15,7 @@ export function ProfileNameBio() {
       <CardContent className="p-4 sm:p-6">
         {/* Profile Header */}
         <div className="flex flex-col items-center text-center mb-4">
-          <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mb-4 border-2 border-purple-400/20 dark:border-purple-400/20 ring-4 ring-zinc-800/50 dark:ring-zinc-800/50">
+          <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mb-4 border-2 border-blue-400/20 dark:border-blue-400/20 ring-4 ring-zinc-800/50 dark:ring-zinc-800/50">
             <Image
               src={personalInfo.avatar || "/placeholder.svg"}
               alt={personalInfo.name}
@@ -26,7 +26,7 @@ export function ProfileNameBio() {
           <h2 className="text-xl sm:text-2xl font-bold text-black dark:text-white">
             {personalInfo.name}
           </h2>
-          <p className="text-sm text-purple-600 dark:text-purple-400 mb-1">
+          <p className="text-sm text-blue-600 dark:text-blue-400 mb-1">
             {personalInfo.title}
           </p>
           <div className="flex items-center justify-center text-xs text-zinc-600 dark:text-zinc-400 mb-3">
@@ -63,7 +63,7 @@ export function ProfileNameBio() {
             href="https://drive.google.com/file/d/1_YiZc25Lp-Hz4qX1zzz2ouIaNbLEkk-K/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-purple-500/10 hover:bg-purple-500 hover:text-white transition-all duration-300 text-purple-400 font-medium py-2 px-6 w-fit border border-purple-400/50 hover:border-purple-500 shadow-sm hover:shadow-purple-500/20">
+            className="rounded-full bg-blue-500/10 hover:bg-blue-500 hover:text-white transition-all duration-300 text-blue-400 font-medium py-2 px-6 w-fit border border-blue-400/50 hover:border-blue-500 shadow-sm hover:shadow-blue-500/20">
             View Resume
           </a>
         </div>

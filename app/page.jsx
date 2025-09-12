@@ -77,7 +77,7 @@ export default function Home() {
               <Card className="bg-zinc-100/70 dark:bg-zinc-900/70 border-zinc-300 dark:border-zinc-800 backdrop-blur-sm rounded-xl">
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center mb-4 sm:mb-6">
-                    <BriefcaseIcon className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400" />
+                    <BriefcaseIcon className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
                     <h3 className="text-lg font-medium text-black dark:text-white">
                       Experience
                     </h3>
@@ -114,7 +114,7 @@ export default function Home() {
               <Card className="bg-zinc-100/70 dark:bg-zinc-900/70 border-zinc-300 dark:border-zinc-800 backdrop-blur-sm rounded-xl">
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center mb-4">
-                    <CodeIcon className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400" />
+                    <CodeIcon className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
                     <h3 className="text-lg font-medium text-black dark:text-white">
                       Technical Skills
                     </h3>
@@ -191,7 +191,7 @@ export default function Home() {
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center justify-between mb-4 sm:mb-6">
                     <div className="flex items-center">
-                      <GlobeIcon className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400" />
+                      <GlobeIcon className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
                       <h3 className="text-lg font-medium text-black dark:text-white">
                         Recent Projects
                       </h3>
