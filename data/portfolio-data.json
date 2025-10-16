@@ -211,51 +211,64 @@
       ]
     },
     {
-      "id": "scholarsync",
-      "slug": "scholarsync",
-      "title": "ScholarSync - Student Advisory",
-      "name": "ScholarSync - Student Advisory",
-      "category": "Educational Platform",
-      "period": "Jul 2024 – Present",
-      "timeline": "Jul 2024 – Present",
+      "id": "naptrix",
+      "slug": "naptrix",
+      "title": "Naptrix - Smart AI Sleep Tracker",
+      "name": "Naptrix - Smart AI Sleep Tracker",
+      "category": "Health & Wellness Platform",
+      "period": "Oct 2025 – Present",
+      "timeline": "Oct 2025 – Present",
       "role": "Full-Stack Developer",
       "client": "Personal Project",
-      "github": "https://github.com/Aniketgautam959/ScholarSync",
-      "githubUrl": "https://github.com/Aniketgautam959/ScholarSync",
-      "liveUrl": null,
-      "shortDescription": "Career advisory platform integrating APIs for real-time guidance and student resources.",
+      "github": "https://github.com/Aniketgautam959/Naptrix-Smart-AI-Sleep-Tracker",
+      "githubUrl": "https://github.com/Aniketgautam959/Naptrix-Smart-AI-Sleep-Tracker",
+      "liveUrl": "https://naptrix-smart-ai-sleep-tracker-two.vercel.app/",
+      "shortDescription": "Modern sleep tracking app with real-time analytics, personalized insights, and beautiful visualizations.",
       "description": [
-        "ScholarSync is a comprehensive student advisory platform that connects students with career guidance resources, internship opportunities, and educational materials. The platform integrates with various government and educational APIs to provide real-time information.",
-        "The application features a modern, responsive design built with Next.js and MongoDB, offering personalized recommendations based on student profiles and career interests.",
-        "Key features include real-time collaboration tools, push notifications for important updates, and secure authentication systems to protect student data."
+        "Naptrix is a modern sleep tracking web application that helps users record, visualize, and analyze sleep patterns with an intuitive UI and real-time insights.",
+        "Built with Next.js 15, React 19, TypeScript, and Tailwind CSS, it features a responsive dashboard, interactive charts, and secure authentication via Clerk.",
+        "Data is stored in a Neon PostgreSQL database via Prisma, with Server Actions powering fast, type-safe operations."
       ],
       "features": [
-        "Real-time career guidance and advisory services",
-        "Integration with NPTEL and government APIs",
-        "Personalized student resource recommendations",
-        "Push notifications for important updates",
-        "Secure authentication and user management",
-        "Mobile-responsive design for accessibility"
+        "Sleep duration tracking with add/edit/delete records",
+        "Real-time statistics and history with search & filters",
+        "Interactive Chart.js visualizations (best/worst, averages)",
+        "Secure authentication with Google/GitHub/Facebook and email",
+        "Personalized dashboards and protected routes",
+        "Fully responsive, performant UI with smooth animations"
       ],
       "achievements": [
-        "Integrated NPTEL and government APIs for student resources",
-        "Enhanced guidance efficiency by 40% with real-time collaboration",
-        "Implemented push notifications and secure authentication"
+        "Delivered a production-ready analytics dashboard with responsive charts",
+        "Implemented secure auth and protected routes using Clerk",
+        "Set up Neon + Prisma for scalable, serverless Postgres"
       ],
-      "technologies": ["Next.js", "JavaScript", "Tailwind CSS", "MongoDB"],
-      "thumbnailImage": "/scholarsync/landing.png",
+      "technologies": [
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "Chart.js",
+        "Prisma",
+        "Neon",
+        "Clerk"
+      ],
+      "thumbnailImage": "/naptrix/Screenshot 2025-10-16 at 5.39.42 PM.png",
       "gallery": [
         {
-          "url": "/scholarsync/landing.png",
-          "caption": "Landing page with platform overview"
+          "url": "/naptrix/Screenshot 2025-10-16 at 5.39.42 PM.png",
+          "caption": "Dashboard overview"
         },
         {
-          "url": "/scholarsync/dashboard-new.png",
-          "caption": "Student dashboard with personalized content"
+          "url": "/naptrix/Screenshot 2025-10-16 at 5.40.06 PM.png",
+          "caption": "Analytics and charts"
         },
         {
-          "url": "/scholarsync/internships.png",
-          "caption": "Internship opportunities and applications"
+          "url": "/naptrix/Screenshot 2025-10-16 at 5.40.23 PM.png",
+          "caption": "Sleep history and filters"
+        },
+        {
+          "url": "/naptrix/Screenshot 2025-10-16 at 5.41.06 PM.png",
+          "caption": "Add/edit sleep record"
         }
       ]
     }
