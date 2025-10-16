@@ -60,7 +60,7 @@ export function ProfileNameBio() {
         </div>
         <div className="flex w-full justify-center items-center">
           <a
-            href="https://drive.google.com/file/d/178_oEhV4FtAy5XeTsS7o5WofvvQw5Whc/view?usp=sharing"
+            href="https://drive.google.com/file/d/1RiaGRecDUQ-3Lw1capVH7MUjJtHfpuiv/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full bg-blue-500/10 hover:bg-blue-500 hover:text-white transition-all duration-300 text-blue-400 font-medium py-2 px-6 w-fit border border-blue-400/50 hover:border-blue-500 shadow-sm hover:shadow-blue-500/20">
