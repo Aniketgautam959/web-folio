@@ -192,49 +192,6 @@
   },
   "projects": [
     {
-      "id": "naptrix",
-      "slug": "naptrix",
-      "title": "Naptrix - Smart AI Sleep Tracker",
-      "name": "Naptrix - Smart AI Sleep Tracker",
-      "category": "Health & Wellness Platform",
-      "period": "Oct 2025 – Present",
-      "timeline": "Oct 2025 – Present",
-      "role": "Full-Stack Developer",
-      "client": "Personal Project",
-      "github": "https://github.com/Aniketgautam959/Naptrix-Smart-AI-Sleep-Tracker",
-      "githubUrl": "https://github.com/Aniketgautam959/Naptrix-Smart-AI-Sleep-Tracker",
-      "liveUrl": "https://naptrix-smart-ai-sleep-tracker-two.vercel.app/",
-      "shortDescription": "Modern sleep tracking app with real-time analytics, personalized insights, and beautiful visualizations.",
-      "description": [
-        "Naptrix is a modern sleep tracking web application that helps users record, visualize, and analyze sleep patterns with an intuitive UI and real-time insights.",
-        "Built with Next.js 15, React 19, TypeScript, and Tailwind CSS, it features a responsive dashboard, interactive charts, and secure authentication via Clerk.",
-        "Data is stored in a Neon PostgreSQL database via Prisma, with Server Actions powering fast, type-safe operations."
-      ],
-      "features": [
-        "Sleep duration tracking with add/edit/delete records",
-        "Real-time statistics and history with search & filters",
-        "Interactive Chart.js visualizations (best/worst, averages)",
-        "Secure authentication with Google/GitHub/Facebook and email",
-        "Personalized dashboards and protected routes",
-        "Fully responsive, performant UI with smooth animations"
-      ],
-      "achievements": [
-        "Delivered a production-ready analytics dashboard with responsive charts",
-        "Implemented secure auth and protected routes using Clerk",
-        "Set up Neon + Prisma for scalable, serverless Postgres"
-      ],
-      "technologies": [
-        "Next.js 15",
-        "React 19",
-        "TypeScript",
-        "Tailwind CSS",
-        "Chart.js",
-        "Prisma",
-        "Neon",
-        "Clerk"
-      ]
-    },
-    {
       "id": "taskifyminutes",
       "slug": "taskifyminutes",
       "title": "TaskifyMinutes - AI Meeting Assistant",
@@ -276,6 +233,49 @@
         "Clerk",
         "PostgreSQL",
         "Prisma"
+      ]
+    },
+    {
+      "id": "naptrix",
+      "slug": "naptrix",
+      "title": "Naptrix - Smart AI Sleep Tracker",
+      "name": "Naptrix - Smart AI Sleep Tracker",
+      "category": "Health & Wellness Platform",
+      "period": "Oct 2025 – Present",
+      "timeline": "Oct 2025 – Present",
+      "role": "Full-Stack Developer",
+      "client": "Personal Project",
+      "github": "https://github.com/Aniketgautam959/Naptrix-Smart-AI-Sleep-Tracker",
+      "githubUrl": "https://github.com/Aniketgautam959/Naptrix-Smart-AI-Sleep-Tracker",
+      "liveUrl": "https://naptrix-smart-ai-sleep-tracker-two.vercel.app/",
+      "shortDescription": "Modern sleep tracking app with real-time analytics, personalized insights, and beautiful visualizations.",
+      "description": [
+        "Naptrix is a modern sleep tracking web application that helps users record, visualize, and analyze sleep patterns with an intuitive UI and real-time insights.",
+        "Built with Next.js 15, React 19, TypeScript, and Tailwind CSS, it features a responsive dashboard, interactive charts, and secure authentication via Clerk.",
+        "Data is stored in a Neon PostgreSQL database via Prisma, with Server Actions powering fast, type-safe operations."
+      ],
+      "features": [
+        "Sleep duration tracking with add/edit/delete records",
+        "Real-time statistics and history with search & filters",
+        "Interactive Chart.js visualizations (best/worst, averages)",
+        "Secure authentication with Google/GitHub/Facebook and email",
+        "Personalized dashboards and protected routes",
+        "Fully responsive, performant UI with smooth animations"
+      ],
+      "achievements": [
+        "Delivered a production-ready analytics dashboard with responsive charts",
+        "Implemented secure auth and protected routes using Clerk",
+        "Set up Neon + Prisma for scalable, serverless Postgres"
+      ],
+      "technologies": [
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "Chart.js",
+        "Prisma",
+        "Neon",
+        "Clerk"
       ]
     },
     {
