@@ -101,9 +101,9 @@
       "technologies": [
         "React.js",
         "Next.js",
-        "MongoDB",
+        "PostgreSQL",
+        "MySQL",
         "Node.js",
-        "Express.js",
         "REST APIs",
         "Git",
         "Agile"
