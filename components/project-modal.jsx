@@ -1,14 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import {
-  X,
-  ExternalLink,
-  Github,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { X, ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -19,28 +11,7 @@ import {
 } from "@/components/ui/dialog";
 
 export function ProjectModal({ project, isOpen, onClose }) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   if (!project) return null;
-
-  // Ensure currentImageIndex is within bounds
-  const safeImageIndex = project.gallery && project.gallery.length > 0 
-    ? Math.min(currentImageIndex, project.gallery.length - 1) 
-    : 0;
-
-  const nextImage = () => {
-    if (project.gallery) {
-      setCurrentImageIndex((prev) => (prev + 1) % project.gallery.length);
-    }
-  };
-
-  const prevImage = () => {
-    if (project.gallery) {
-      setCurrentImageIndex(
-        (prev) => (prev - 1 + project.gallery.length) % project.gallery.length
-      );
-    }
-  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -61,81 +32,6 @@ export function ProjectModal({ project, isOpen, onClose }) {
               {project.shortDescription}
             </p>
           </div>
-
-          {/* Project Gallery */}
-          {project.gallery && project.gallery.length > 0 && (
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-white dark:text-white">
-                Project Screenshots
-              </h3>
-              <div className="relative">
-                <div className="relative h-fit sm:h-80 rounded-xl overflow-hidden border-zinc-800 dark:border-zinc-800 flex items-center justify-center">
-                  <Image
-                    src={
-                      project.gallery[safeImageIndex]?.url ||
-                      "/placeholder.svg"
-                    }
-                    alt={
-                      project.gallery[safeImageIndex]?.caption ||
-                      `Screenshot ${safeImageIndex + 1}`
-                    }
-                    width={800}
-                    height={500}
-                    className="object-contain w-full h-auto max-h-80 rounded-xl"
-                  />
-                </div>
-
-                {project.gallery.length > 1 && (
-                  <>
-                    <Button
-                      onClick={prevImage}
-                      size="icon"
-                      variant="ghost"
-                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full">
-                      <ChevronLeft className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      onClick={nextImage}
-                      size="icon"
-                      variant="ghost"
-                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full">
-                      <ChevronRight className="h-4 w-4" />
-                    </Button>
-                  </>
-                )}
-
-                {project.gallery[safeImageIndex]?.caption && (
-                  <div className="mt-2 text-sm text-zinc-400 dark:text-zinc-400 text-center">
-                    {project.gallery[safeImageIndex]?.caption}
-                  </div>
-                )}
-              </div>
-
-              {/* Thumbnail navigation */}
-              {project.gallery.length > 1 && (
-                <div className="flex gap-2 justify-center overflow-x-auto pb-2">
-                  {project.gallery.map((image, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImageIndex(index)}
-                      className={`relative w-16 rounded-sm p-1 overflow-hidden border-2 flex-shrink-0 ${
-                        index === safeImageIndex
-                          ? "border-blue-400"
-                          : "border-zinc-700"
-                      }`}>
-                      <Image
-                        src={image.url || "/placeholder.svg"}
-                        alt={`Thumbnail ${index + 1}`}
-                        width={64}
-                        height={64}
-                        className="object-contain w-full h-full"
-                      />
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
 
           {/* Project Description */}
           <div className="space-y-4">
