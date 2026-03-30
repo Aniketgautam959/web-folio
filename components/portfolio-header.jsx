@@ -53,12 +53,12 @@ export function PortfolioHeader() {
       {/* Glassmorphism Navbar */}
       <nav className="relative">
         {/* Main Navigation Container */}
-        <div className="bg-white/20 dark:bg-black/20 backdrop-blur-xl border border-zinc-300/20 dark:border-white/10 rounded-full px-6 py-3 ">
+        <div className="bg-white/70 dark:bg-black/30 backdrop-blur-xl border border-zinc-200/50 dark:border-zinc-700/30 rounded-full px-6 py-3 shadow-sm">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center group">
-              <div className="w-10 h-10 rounded-full bg-zinc-200/50 dark:bg-white/10 backdrop-blur-sm border border-zinc-300/50 dark:border-white/20 flex items-center justify-center hover:bg-zinc-300/50 dark:hover:bg-white/20 transition-all duration-300">
-                <span className="text-sm font-bold bg-blue-400 bg-clip-text text-transparent">
+              <div className="w-10 h-10 rounded-full bg-zinc-100/80 dark:bg-zinc-800/80 backdrop-blur-sm border border-zinc-200 dark:border-zinc-700 flex items-center justify-center hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all duration-300">
+                <span className="text-sm font-bold text-zinc-800 dark:text-zinc-200">
                   AG
                 </span>
               </div>
@@ -79,8 +79,8 @@ export function PortfolioHeader() {
                     className={cn(
                       "text-sm font-medium transition-all duration-300 relative",
                       isActive
-                        ? "text-black dark:text-blue-600"
-                        : "text-zinc-700/70 dark:text-white/70 hover:text-black dark:hover:text-white"
+                        ? "text-zinc-900 dark:text-zinc-100"
+                        : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
                     )}>
                     {item.label}
                   </Link>
@@ -92,20 +92,20 @@ export function PortfolioHeader() {
             <div className="hidden md:block">
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="bg-zinc-200/50 dark:bg-white/10 backdrop-blur-sm border border-zinc-300/50 dark:border-white/20 rounded-full px-4 py-2 text-sm font-medium text-zinc-800 dark:text-white/90 hover:bg-zinc-300/50 dark:hover:bg-white/20 hover:text-black dark:hover:text-white transition-all duration-300">
+                className="bg-zinc-100/80 dark:bg-zinc-800/80 backdrop-blur-sm border border-zinc-200 dark:border-zinc-700 rounded-full px-4 py-2 text-sm font-medium text-zinc-800 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all duration-300">
                 {personalInfo.email}
               </a>
             </div>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden w-10 h-10 rounded-full bg-zinc-200/50 dark:bg-white/10 backdrop-blur-sm border border-zinc-300/50 dark:border-white/20 flex items-center justify-center hover:bg-zinc-300/50 dark:hover:bg-white/20 transition-all duration-300"
+              className="md:hidden w-10 h-10 rounded-full bg-zinc-100/80 dark:bg-zinc-800/80 backdrop-blur-sm border border-zinc-200 dark:border-zinc-700 flex items-center justify-center hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all duration-300"
               onClick={toggleMobileMenu}
               aria-label="Toggle menu">
               {mobileMenuOpen ? (
-                <X size={18} className="text-black dark:text-white" />
+                <X size={18} className="text-zinc-800 dark:text-zinc-200" />
               ) : (
-                <Menu size={18} className="text-black dark:text-white" />
+                <Menu size={18} className="text-zinc-800 dark:text-zinc-200" />
               )}
             </button>
           </div>
@@ -114,7 +114,7 @@ export function PortfolioHeader() {
         {/* Mobile Navigation */}
         <div
           className={cn(
-            "absolute top-full left-0 right-0 mt-2 bg-white/30 dark:bg-black/30 backdrop-blur-xl border border-zinc-300/20 dark:border-white/10 rounded-2xl shadow-2xl md:hidden transition-all duration-300 origin-top",
+            "absolute top-full left-0 right-0 mt-2 bg-white/70 dark:bg-black/30 backdrop-blur-xl border border-zinc-200/50 dark:border-zinc-700/30 rounded-2xl shadow-lg md:hidden transition-all duration-300 origin-top",
             mobileMenuOpen
               ? "opacity-100 scale-100"
               : "opacity-0 scale-95 pointer-events-none"
@@ -133,8 +133,8 @@ export function PortfolioHeader() {
                   className={cn(
                     "block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300",
                     isActive
-                      ? "text-black dark:text-white bg-zinc-200/50 dark:bg-white/10"
-                      : "text-zinc-700/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-zinc-200/30 dark:hover:bg-white/5"
+                      ? "text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800"
+                      : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50"
                   )}
                   onClick={() => setMobileMenuOpen(false)}>
                   {item.label}
@@ -143,10 +143,10 @@ export function PortfolioHeader() {
             })}
 
             {/* Mobile Contact */}
-            <div className="pt-2 border-t border-zinc-300/20 dark:border-white/10">
+            <div className="pt-2 border-t border-zinc-200 dark:border-zinc-700">
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="block px-4 py-3 rounded-xl text-sm font-medium text-zinc-800 dark:text-white/90 bg-zinc-200/50 dark:bg-white/10 hover:bg-zinc-300/50 dark:hover:bg-white/20 transition-all duration-300 text-center"
+                className="block px-4 py-3 rounded-xl text-sm font-medium text-zinc-800 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all duration-300 text-center"
                 onClick={() => setMobileMenuOpen(false)}>
                 {personalInfo.email}
               </a>

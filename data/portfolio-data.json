@@ -38,7 +38,7 @@
     ]
   },
   "about": {
-    "bio": "I'm a passionate full-stack developer specializing in scalable web applications and AI-driven solutions. Currently pursuing Computer Science at KIET Group of Institutions with hands-on experience in React, Next.js, and modern web technologies.",
+    "bio": "I am a passionate Full-Stack Developer focused on building scalable web applications and AI-driven solutions. Currently pursuing my B.Tech in Computer Science at KIET Group of Institutions, I specialize in modern web technologies like Next.js and React to deliver seamless, high-performance digital experiences.",
     "focus": [
       "Building production-ready MERN/Next.js applications",
       "Optimizing API performance and database queries",
@@ -88,6 +88,23 @@
   ],
   "experience": [
     {
+      "title": "Freelance Full-Stack Developer",
+      "company": "Freelance",
+      "period": "Mar 2026",
+      "description": "Created a full-stack artist booking platform using Next.js, TypeScript, MongoDB, and Clerk Auth, enabling 50+ user interactions.",
+      "achievements": [
+        "Engineered a seamless booking system, reducing manual booking efforts by 60%.",
+        "Built an admin dashboard to manage 20+ artist profiles and booking data efficiently.",
+        "Implemented SEO best practices with optimized meta tags, Open Graph, and structured data for improved search visibility."
+      ],
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "MongoDB",
+        "Clerk"
+      ]
+    },
+    {
       "title": "Full-Stack Developer Intern",
       "company": "IIPC KIET",
       "period": "Jan 2025 – Mar 2025",
@@ -95,8 +112,7 @@
       "achievements": [
         "Developed 5+ production-ready web apps using MERN stack",
         "Improved API performance by 40% through query optimization and caching",
-        "Reduced page load time by 30% with code splitting and lazy loading",
-        "Collaborated with 6 developers in Agile sprints, ensuring best practices"
+        "Reduced page load time by 30% with code splitting and lazy loading"
       ],
       "technologies": [
         "React.js",
@@ -116,44 +132,48 @@
         "name": "AWS Certified Cloud Practitioner",
         "issuer": "AWS",
         "date": "2024",
-        "logo": "/Amazon_Web_Services_Logo.svg.png"
-      },
-      {
-        "name": "Meta Front-End Developer Certificate",
-        "issuer": "Coursera",
-        "date": "2024",
-        "logo": "/coursera.png"
+        "logo": "/Amazon_Web_Services_Logo.svg.png",
+        "url": "https://drive.google.com/file/d/1VQ3ez9aE9RT-2MzCKGYWK5MU9U105sl5/view?usp=sharing"
       },
       {
         "name": "Cisco Cybersecurity Essentials",
         "issuer": "Cisco",
         "date": "2025",
-        "logo": "/images.png"
+        "logo": "/images.png",
+        "url": "https://www.credly.com/badges/4819920f-a443-4a8a-a842-a30240191dc5/linked_in_profile"
+      }
+    ],
+    "patents": [
+      {
+        "name": "AbleVista: A Technology-Driven Platform for Specially-Abled Learners",
+        "issuer": "Indian Patent Office (App No: 202511021977 A)",
+        "date": "2025 – 2026",
+        "description": "Presented research work at the International Conference on Intelligent Computing and Automation for Sustainable Solutions (ICASS 2026)."
       }
     ],
     "education": [
       {
-        "degree": "Bachelor of Technology (Computer Science)",
+        "degree": "B.Tech in Computer Science",
         "institution": "KIET Group of Institutions, A.K.T.U",
-        "year": "2022 – 2026 (CGPA: 7.76/10) (Current)",
+        "year": "2022 – 2026 (CGPA: 7.7/10)",
         "logo": "/kiet.jpg"
       },
       {
-        "degree": "Higher Secondary (CBSE)",
-        "institution": "Indirapuram Public School",
+        "degree": "Higher Secondary Education",
+        "institution": "Indirapuram Public School (CBSE)",
         "year": "2020 – 2022",
         "logo": "/ips_pv_new_white_logo.png"
       }
     ],
     "skills": [
       "Full-Stack Development",
+      "Frontend Development",
       "API Design",
-      "Database Optimization",
-      "Cloud Integration",
+      "Database",
       "UI/UX Design",
+      "SEO Optimization",
       "Performance Optimization",
-      "Agile Development",
-      "System Design"
+      "Agile Development"
     ]
   },
   "technicalSkills": {

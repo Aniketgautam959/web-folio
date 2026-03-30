@@ -5,15 +5,15 @@ import { Card } from "@/components/ui/card";
 export function ProjectCard({ title, category, onClick }) {
   return (
     <button onClick={onClick} className="block h-full w-full text-left">
-      <Card className="bg-zinc-800/50 dark:bg-zinc-800/50 border-zinc-700 dark:border-zinc-700 overflow-hidden group hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all h-full">
+      <Card className="bg-white/80 dark:bg-zinc-900/80 border-zinc-200 dark:border-zinc-800 overflow-hidden group hover:border-zinc-400 dark:hover:border-zinc-600 hover:shadow-md transition-all duration-300 h-full">
         <div className="relative p-6 sm:p-8">
-          <div className="text-xs text-blue-400 dark:text-blue-400 mb-2 font-medium uppercase tracking-wider">
+          <div className="text-xs text-zinc-500 dark:text-zinc-500 mb-2 font-medium uppercase tracking-wider">
             {category}
           </div>
-          <h3 className="font-semibold text-lg sm:text-xl text-white dark:text-white group-hover:text-blue-400 transition-colors">
+          <h3 className="font-semibold text-lg sm:text-xl text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
             {title}
           </h3>
-          <div className="mt-4 text-sm text-zinc-400 dark:text-zinc-400">
+          <div className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
             Click to view details →
           </div>
         </div>

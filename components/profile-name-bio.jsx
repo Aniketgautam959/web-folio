@@ -1,9 +1,7 @@
 "use client";
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { SocialLinks } from "@/components/social-links";
-import { MapPin } from "lucide-react";
+import { MapPin, FileText, ArrowUpRight } from "lucide-react";
 import { getPersonalInfo, getAboutInfo } from "@/lib/data";
 
 export function ProfileNameBio() {
@@ -11,63 +9,95 @@ export function ProfileNameBio() {
   const aboutInfo = getAboutInfo();
 
   return (
-    <Card className="bg-zinc-900/70 dark:bg-zinc-900/70 border-zinc-800 dark:border-zinc-800 backdrop-blur-sm rounded-xl">
-      <CardContent className="p-4 sm:p-6">
-        {/* Profile Header */}
-        <div className="flex flex-col items-center text-center mb-4">
-          <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mb-4 border-2 border-blue-400/20 dark:border-blue-400/20 ring-4 ring-zinc-800/50 dark:ring-zinc-800/50">
-            <Image
-              src={personalInfo.avatar || "/placeholder.svg"}
-              alt={personalInfo.name}
-              fill
-              className="object-cover"
-            />
+    <div className="relative overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-950 shadow-2xl">
+      {/* Top accent */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-500/60 to-transparent" />
+      {/* Subtle glow behind avatar */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-56 rounded-full bg-white/[0.03] blur-3xl pointer-events-none" />
+
+      <div className="relative z-10">
+
+        {/* ── Top Hero Area ── */}
+        <div className="flex flex-col items-center text-center px-6 pt-8 pb-6">
+          {/* Avatar */}
+          <div className="relative mb-5">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/10 to-transparent blur scale-125 pointer-events-none" />
+            <div className="relative w-24 h-24 rounded-full overflow-hidden border border-zinc-700/80 ring-4 ring-zinc-900">
+              <Image
+                src={personalInfo.avatar || "/placeholder.svg"}
+                alt={personalInfo.name}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <span className="absolute bottom-0.5 right-0.5 w-3 h-3 bg-emerald-400 rounded-full border-2 border-zinc-950" />
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-black dark:text-white">
+
+          {/* Name */}
+          <h1 className="text-[1.6rem] font-bold text-white leading-tight tracking-tight">
             {personalInfo.name}
-          </h2>
-          <p className="text-sm text-blue-600 dark:text-blue-400 mb-1">
+          </h1>
+
+          {/* Role pill */}
+          <span className="mt-2 inline-block bg-zinc-800/80 border border-zinc-700/60 text-zinc-300 text-[11px] font-semibold tracking-widest uppercase px-3 py-1 rounded-full">
             {personalInfo.title}
-          </p>
-          <div className="flex items-center justify-center text-xs text-zinc-600 dark:text-zinc-400 mb-3">
-            <MapPin className="w-3 h-3 mr-1" />
+          </span>
+
+          {/* Location */}
+          <div className="flex items-center justify-center gap-1 mt-3 text-xs text-zinc-500">
+            <MapPin className="w-3 h-3" />
             <span>{personalInfo.location}</span>
           </div>
         </div>
 
-        {/* Badges */}
-        <div className="flex flex-wrap gap-2 justify-center mb-4">
+        {/* ── Divider ── */}
+        <div className="mx-6 h-px bg-zinc-800/70" />
+
+        {/* ── Badges ── */}
+        <div className="px-6 py-5 flex flex-wrap gap-2 justify-center">
           {personalInfo.badges.map((badge, index) => (
-            <Badge
+            <span
               key={index}
-              variant="outline"
-              className="bg-zinc-100 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 border-zinc-300 dark:border-zinc-700">
+              className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-medium bg-zinc-900 text-zinc-300 border border-zinc-800 hover:border-zinc-600 hover:text-white transition-all"
+            >
               {badge}
-            </Badge>
+            </span>
           ))}
         </div>
 
-        {/* Bio */}
-        <div className="space-y-3 mb-4">
-          <p className="text-sm text-zinc-700 dark:text-zinc-300">
+        {/* ── Divider ── */}
+        <div className="mx-6 h-px bg-zinc-800/70" />
+
+        {/* ── Bio ── */}
+        <div className="px-6 py-5">
+          <p className="text-[13px] text-zinc-400 leading-[1.8] text-left">
             {aboutInfo.bio}
           </p>
         </div>
 
-        {/* Social Links */}
-        <div className="flex justify-center">
+        {/* ── Divider ── */}
+        <div className="mx-6 h-px bg-zinc-800/70" />
+
+        {/* ── Social & CTA ── */}
+        <div className="px-6 py-5 flex flex-col items-center gap-4">
           <SocialLinks socialLinks={personalInfo.social} />
-        </div>
-        <div className="flex w-full justify-center items-center">
+
           <a
-            href="https://drive.google.com/file/d/11fSDi-2YpS8tkyUdb5lQChSNuZ6IfeHK/view?usp=sharing"
+            href="https://drive.google.com/file/d/1TvHwTS_2V8I6KsnDHvGhSFGneSF8pAU7/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-blue-500/10 hover:bg-blue-500 hover:text-white transition-all duration-300 text-blue-400 font-medium py-2 px-6 w-fit border border-blue-400/50 hover:border-blue-500 shadow-sm hover:shadow-blue-500/20">
+            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white text-zinc-950 text-sm font-semibold hover:bg-zinc-100 active:scale-[0.97] transition-all duration-200"
+          >
+            <FileText className="w-4 h-4" />
             View Resume
+            <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
           </a>
         </div>
-      </CardContent>
-    </Card>
+
+      </div>
+
+      {/* Bottom accent */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-700/50 to-transparent" />
+    </div>
   );
 }

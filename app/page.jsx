@@ -18,7 +18,7 @@ import { getExperienceInfo, getTechnicalSkillsInfo } from "@/lib/data";
 
 const SkillTagComponent = ({ children }) => {
   return (
-    <div className="px-2 py-1 bg-zinc-200 dark:bg-zinc-800 rounded-full text-xs font-medium text-zinc-700 dark:text-zinc-400">
+    <div className="px-2 py-1 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg text-xs font-medium text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
       {children}
     </div>
   );
@@ -46,14 +46,14 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
-      {/* Background Grid Pattern */}
-      <div className="fixed inset-0 bg-[radial-gradient(#ddd_1px,transparent_1px)] dark:bg-[radial-gradient(#333_1px,transparent_1px)] [background-size:20px_20px] opacity-20 z-0"></div>
+    <main className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
+      {/* Subtle Background Pattern */}
+      <div className="fixed inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:32px_32px] opacity-20 z-0"></div>
 
       {/* Header */}
       <PortfolioHeader />
 
-      <div className="relative z-10 container mx-auto p-3 sm:p-4 pt-24 sm:pt-32 pb-6 sm:pb-8">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-12 sm:pb-16 max-w-7xl">
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
           {/* Left Column - Profile Sections */}
@@ -74,16 +74,16 @@ export default function Home() {
           <div className="col-span-1 md:col-span-2 lg:col-span-3 space-y-4 sm:space-y-6">
             {/* Experience Section */}
             <AnimatedSection animation="fade-up" id="experience">
-              <Card className="bg-zinc-100/70 dark:bg-zinc-900/70 border-zinc-300 dark:border-zinc-800 backdrop-blur-sm rounded-xl">
-                <CardContent className="p-4 sm:p-6">
-                  <div className="flex items-center mb-4 sm:mb-6">
-                    <BriefcaseIcon className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
-                    <h3 className="text-lg font-medium text-black dark:text-white">
+              <Card className="bg-white/80 dark:bg-zinc-900/80 border-zinc-200 dark:border-zinc-800 backdrop-blur-sm rounded-xl shadow-sm">
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex items-center mb-6 sm:mb-8">
+                    <BriefcaseIcon className="w-5 h-5 mr-3 text-zinc-700 dark:text-zinc-500" />
+                    <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
                       Experience
                     </h3>
                   </div>
 
-                  <div className="space-y-6 sm:space-y-8">
+                  <div className="space-y-8 sm:space-y-10">
                     {experienceInfo.map((experience, index) => (
                       <AnimatedSection
                         key={index}
@@ -111,16 +111,16 @@ export default function Home() {
 
             {/* Skills Section */}
             <AnimatedSection animation="fade-up" id="skills">
-              <Card className="bg-zinc-100/70 dark:bg-zinc-900/70 border-zinc-300 dark:border-zinc-800 backdrop-blur-sm rounded-xl">
-                <CardContent className="p-4 sm:p-6">
-                  <div className="flex items-center mb-4">
-                    <CodeIcon className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
-                    <h3 className="text-lg font-medium text-black dark:text-white">
+              <Card className="bg-white/80 dark:bg-zinc-900/80 border-zinc-200 dark:border-zinc-800 backdrop-blur-sm rounded-xl shadow-sm">
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex items-center mb-6 sm:mb-8">
+                    <CodeIcon className="w-5 h-5 mr-3 text-zinc-700 dark:text-zinc-500" />
+                    <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
                       Technical Skills
                     </h3>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <AnimatedSection animation="slide-right" delay={100}>
                       <div className="space-y-3">
                         <h4 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
@@ -187,18 +187,18 @@ export default function Home() {
 
             {/* Projects Section */}
             <AnimatedSection animation="fade-up" id="projects">
-              <Card className="bg-zinc-100/70 dark:bg-zinc-900/70 border-zinc-300 dark:border-zinc-800 backdrop-blur-sm rounded-xl">
-                <CardContent className="p-4 sm:p-6">
-                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+              <Card className="bg-white/80 dark:bg-zinc-900/80 border-zinc-200 dark:border-zinc-800 backdrop-blur-sm rounded-xl shadow-sm">
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex items-center justify-between mb-6 sm:mb-8">
                     <div className="flex items-center">
-                      <GlobeIcon className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
-                      <h3 className="text-lg font-medium text-black dark:text-white">
+                      <GlobeIcon className="w-5 h-5 mr-3 text-zinc-700 dark:text-zinc-500" />
+                      <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
                         Recent Projects
                       </h3>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {projects.map((project, index) => (
                       <AnimatedSection
                         key={project.id}
@@ -224,11 +224,10 @@ export default function Home() {
         <AnimatedSection
           animation="fade-in"
           delay={500}
-          className="mt-8 sm:mt-12 py-4 sm:py-6 text-center text-xs sm:text-sm text-zinc-500 dark:text-zinc-500">
+          className="mt-12 sm:mt-16 py-6 sm:py-8 text-center text-xs sm:text-sm text-zinc-500 dark:text-zinc-500 border-t border-zinc-200 dark:border-zinc-800">
           <p>
             © {new Date().getFullYear()} Aniket Gautam. All rights reserved.
           </p>
-          {/* Footer updated */}
         </AnimatedSection>
       </div>
 
