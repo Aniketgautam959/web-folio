@@ -1,47 +1,47 @@
-import { Badge } from "@/components/ui/badge"
-import { CheckCircle2 } from "lucide-react"
+import { SkillTag } from "@/components/skill-tag";
 
-export function ExperienceCard({ title, company, period, description, achievements, technologies }) {
+export function ExperienceCard({
+  title,
+  company,
+  period,
+  description,
+  achievements,
+  technologies,
+}) {
   return (
-    <div className="space-y-4 pb-6 border-b border-zinc-200 dark:border-zinc-800 last:border-0 last:pb-0">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
+    <article className="space-y-4 border-b border-border pb-8 last:border-0 last:pb-0">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h4 className="font-medium text-base sm:text-lg text-zinc-900 dark:text-zinc-100">{title}</h4>
-          <div className="text-sm text-zinc-600 dark:text-zinc-400">{company}</div>
+          <h4 className="text-base font-medium text-foreground">{title}</h4>
+          <p className="text-sm text-muted-foreground">{company}</p>
         </div>
-        <div className="text-xs text-zinc-500 dark:text-zinc-500 bg-zinc-100 dark:bg-zinc-800/70 px-3 py-1 rounded-full self-start mt-1 sm:mt-0 sm:self-auto">
+        <time className="w-fit rounded-full border border-border bg-muted/40 px-3 py-1 text-xs text-muted-foreground">
           {period}
-        </div>
+        </time>
       </div>
 
-      <p className="text-sm text-zinc-600 dark:text-zinc-400">{description}</p>
+      <p className="text-sm leading-relaxed text-muted-foreground">
+        {description}
+      </p>
 
-      <div className="space-y-3">
-        <h5 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">Key Achievements</h5>
-        <ul className="space-y-2">
+      <div className="space-y-2">
+        <p className="portfolio-section-label">Highlights</p>
+        <ul className="space-y-1.5">
           {achievements.map((achievement, index) => (
-            <li key={index} className="flex text-sm text-zinc-600 dark:text-zinc-400">
-              <CheckCircle2 className="w-4 h-4 mr-2 text-zinc-600 dark:text-zinc-500 flex-shrink-0 mt-0.5" />
-              <span>{achievement}</span>
+            <li
+              key={index}
+              className="text-sm leading-relaxed text-muted-foreground before:mr-2 before:text-muted-foreground/60 before:content-['—']">
+              {achievement}
             </li>
           ))}
         </ul>
       </div>
 
-      <div>
-        <h5 className="text-sm font-medium text-zinc-600 dark:text-zinc-400 mb-2">Technologies & Skills</h5>
-        <div className="flex flex-wrap gap-2">
-          {technologies.map((tech, index) => (
-            <Badge
-              key={index}
-              variant="outline"
-              className="text-xs bg-zinc-50 dark:bg-zinc-800/50 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border-zinc-200 dark:border-zinc-700"
-            >
-              {tech}
-            </Badge>
-          ))}
-        </div>
+      <div className="flex flex-wrap gap-1.5">
+        {technologies.map((tech, index) => (
+          <SkillTag key={index}>{tech}</SkillTag>
+        ))}
       </div>
-    </div>
-  )
+    </article>
+  );
 }

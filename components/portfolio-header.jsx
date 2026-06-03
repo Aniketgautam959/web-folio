@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { getNavItems, getPersonalInfo } from "@/lib/data";
 
 export function PortfolioHeader() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
@@ -16,14 +16,10 @@ export function PortfolioHeader() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-
-      // Determine active section based on scroll position
       const sections = navItems
         .filter((item) => item.href.startsWith("#"))
         .map((item) => item.href.substring(1));
 
-      // Find the current section in view
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element) {
@@ -49,23 +45,17 @@ export function PortfolioHeader() {
   };
 
   return (
-    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-full px-4">
-      {/* Glassmorphism Navbar */}
+    <header className="fixed top-4 left-1/2 z-50 w-full max-w-full -translate-x-1/2 px-4 sm:top-5">
       <nav className="relative">
-        {/* Main Navigation Container */}
-        <div className="bg-white/70 dark:bg-black/30 backdrop-blur-xl border border-zinc-200/50 dark:border-zinc-700/30 rounded-full px-6 py-3 shadow-sm">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex items-center group">
-              <div className="w-10 h-10 rounded-full bg-zinc-100/80 dark:bg-zinc-800/80 backdrop-blur-sm border border-zinc-200 dark:border-zinc-700 flex items-center justify-center hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all duration-300">
-                <span className="text-sm font-bold text-zinc-800 dark:text-zinc-200">
-                  AG
-                </span>
+        <div className="rounded-2xl border border-border/80 bg-background/80 px-4 py-2.5 shadow-sm backdrop-blur-md sm:px-5">
+          <div className="flex items-center justify-between gap-3">
+            <Link href="/" className="group flex items-center">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-muted/50 text-xs font-semibold text-foreground transition-colors group-hover:bg-muted">
+                AG
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden items-center gap-6 md:flex">
               {navItems.slice(1).map((item) => {
                 const isActive =
                   item.href === "/"
@@ -77,50 +67,51 @@ export function PortfolioHeader() {
                     key={item.label}
                     href={item.href}
                     className={cn(
-                      "text-sm font-medium transition-all duration-300 relative",
+                      "relative text-sm transition-colors",
                       isActive
-                        ? "text-zinc-900 dark:text-zinc-100"
-                        : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+                        ? "font-medium text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
                     )}>
                     {item.label}
+                    {isActive && (
+                      <span className="absolute -bottom-1 left-0 right-0 mx-auto h-px w-full max-w-[1.25rem] bg-foreground" />
+                    )}
                   </Link>
                 );
               })}
             </div>
 
-            {/* Contact Button */}
-            <div className="hidden md:block">
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="bg-zinc-100/80 dark:bg-zinc-800/80 backdrop-blur-sm border border-zinc-200 dark:border-zinc-700 rounded-full px-4 py-2 text-sm font-medium text-zinc-800 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all duration-300">
-                {personalInfo.email}
+                className="hidden rounded-full border border-border bg-muted/40 px-3.5 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-muted sm:inline-block md:text-sm">
+                Contact
               </a>
+              <button
+                type="button"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-muted/40 md:hidden"
+                onClick={toggleMobileMenu}
+                aria-label="Toggle menu">
+                {mobileMenuOpen ? (
+                  <X size={18} />
+                ) : (
+                  <Menu size={18} />
+                )}
+              </button>
             </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden w-10 h-10 rounded-full bg-zinc-100/80 dark:bg-zinc-800/80 backdrop-blur-sm border border-zinc-200 dark:border-zinc-700 flex items-center justify-center hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all duration-300"
-              onClick={toggleMobileMenu}
-              aria-label="Toggle menu">
-              {mobileMenuOpen ? (
-                <X size={18} className="text-zinc-800 dark:text-zinc-200" />
-              ) : (
-                <Menu size={18} className="text-zinc-800 dark:text-zinc-200" />
-              )}
-            </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         <div
           className={cn(
-            "absolute top-full left-0 right-0 mt-2 bg-white/70 dark:bg-black/30 backdrop-blur-xl border border-zinc-200/50 dark:border-zinc-700/30 rounded-2xl shadow-lg md:hidden transition-all duration-300 origin-top",
+            "absolute left-0 right-0 top-full mt-2 origin-top rounded-2xl border border-border bg-background/95 p-3 shadow-lg backdrop-blur-md transition-all duration-200 md:hidden",
             mobileMenuOpen
-              ? "opacity-100 scale-100"
-              : "opacity-0 scale-95 pointer-events-none"
+              ? "scale-100 opacity-100"
+              : "pointer-events-none scale-[0.98] opacity-0"
           )}>
-          <div className="p-4 space-y-2">
-            {navItems.map((item, index) => {
+          <div className="space-y-0.5">
+            {navItems.map((item) => {
               const isActive =
                 item.href === "/"
                   ? activeSection === ""
@@ -131,22 +122,20 @@ export function PortfolioHeader() {
                   key={item.label}
                   href={item.href}
                   className={cn(
-                    "block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300",
+                    "block rounded-xl px-3 py-2.5 text-sm transition-colors",
                     isActive
-                      ? "text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800"
-                      : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50"
+                      ? "bg-muted font-medium text-foreground"
+                      : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
                   )}
                   onClick={() => setMobileMenuOpen(false)}>
                   {item.label}
                 </Link>
               );
             })}
-
-            {/* Mobile Contact */}
-            <div className="pt-2 border-t border-zinc-200 dark:border-zinc-700">
+            <div className="mt-2 border-t border-border pt-2">
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="block px-4 py-3 rounded-xl text-sm font-medium text-zinc-800 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all duration-300 text-center"
+                className="block rounded-xl px-3 py-2.5 text-center text-sm text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
                 onClick={() => setMobileMenuOpen(false)}>
                 {personalInfo.email}
               </a>

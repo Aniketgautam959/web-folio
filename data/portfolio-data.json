@@ -16,8 +16,7 @@
     "badges": [
       "Full-Stack",
       "Frontend",
-      "Backend",
-      "UI/UX"
+      "Backend"
     ],
     "social": [
       {
@@ -38,7 +37,7 @@
     ]
   },
   "about": {
-    "bio": "I am a passionate Full-Stack Developer focused on building scalable web applications and AI-driven solutions. Currently pursuing my B.Tech in Computer Science at KIET Group of Institutions, I specialize in modern web technologies like Next.js and React to deliver seamless, high-performance digital experiences.",
+    "bio": "Full-Stack Developer passionate about building scalable web apps and AI-driven solutions. I specialize in Next.js and React, crafting fast, clean, and impactful digital experiences.",
     "focus": [
       "Building production-ready MERN/Next.js applications",
       "Optimizing API performance and database queries",
@@ -59,7 +58,6 @@
     "interests": [
       "Web Development",
       "System Design",
-      "UI/UX Design",
       "Open Source",
       "Generative AI"
     ]
@@ -88,8 +86,28 @@
   ],
   "experience": [
     {
+      "title": "Full Stack Software Developer Intern",
+      "company": "Obitech Global Solutions Pvt Ltd",
+      "period": "Apr 2026 – Present",
+      "description": "Developing and maintaining scalable full-stack web applications using React.js, Next.js, Node.js, and MySQL in a remote, collaborative development environment.",
+      "achievements": [
+        "Developed and maintained scalable full-stack web applications using React.js, Next.js, Node.js, and MySQL in a collaborative development environment.",
+        "Configured and optimised MySQL database workflows using XAMPP, improving backend data handling efficiency by 35%.",
+        "Collaborated with a cross-functional development team using Git and GitHub workflows, contributing to clean branch management and faster deployment cycles by 25%."
+      ],
+      "technologies": [
+        "React.js",
+        "Next.js",
+        "Node.js",
+        "MySQL",
+        "XAMPP",
+        "Git",
+        "GitHub"
+      ]
+    },
+    {
       "title": "Freelance Full-Stack Developer",
-      "company": "Freelance",
+      "company": "Self-Employed",
       "period": "Mar 2026",
       "description": "Created a full-stack artist booking platform using Next.js, TypeScript, MongoDB, and Clerk Auth, enabling 50+ user interactions.",
       "achievements": [
@@ -170,7 +188,6 @@
       "Frontend Development",
       "API Design",
       "Database",
-      "UI/UX Design",
       "SEO Optimization",
       "Performance Optimization",
       "Agile Development"
@@ -202,12 +219,7 @@
       "Figma",
       "Cursor"
     ],
-    "uiux": [
-      "Interface Design",
-      "Wireframing",
-      "Prototyping",
-      "User Research"
-    ]
+    "uiux": []
   },
   "projects": [
     {

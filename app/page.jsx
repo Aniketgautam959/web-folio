@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { GlobeIcon, CodeIcon, BriefcaseIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CodeIcon, BriefcaseIcon, GlobeIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ProjectCard } from "@/components/project-card";
 import { ProjectModal } from "@/components/project-modal";
@@ -15,14 +14,7 @@ import { ProfileContact } from "@/components/profile-contact";
 import { CredentialsSection } from "@/components/credentials-section";
 import { PortfolioHeader } from "@/components/portfolio-header";
 import { getExperienceInfo, getTechnicalSkillsInfo } from "@/lib/data";
-
-const SkillTagComponent = ({ children }) => {
-  return (
-    <div className="px-2 py-1 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg text-xs font-medium text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
-      {children}
-    </div>
-  );
-};
+import { SkillTag } from "@/components/skill-tag";
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -45,19 +37,21 @@ export default function Home() {
     setSelectedProject(null);
   };
 
-  return (
-    <main className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
-      {/* Subtle Background Pattern */}
-      <div className="fixed inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:32px_32px] opacity-20 z-0"></div>
+  const skillGroups = [
+    { label: "Languages", items: technicalSkills.languages },
+    { label: "Frameworks", items: technicalSkills.frameworks },
+    { label: "Tools", items: technicalSkills.tools },
+  ];
 
-      {/* Header */}
+  return (
+    <main className="min-h-screen bg-background text-foreground transition-colors duration-200">
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.4)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.4)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]" />
+
       <PortfolioHeader />
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-12 sm:pb-16 max-w-7xl">
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {/* Left Column - Profile Sections */}
-          <div className="space-y-4 sm:space-y-6 md:sticky md:top-24 self-start">
+      <div className="relative z-10 container mx-auto max-w-6xl px-4 pb-16 pt-24 sm:px-6 sm:pt-28">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
+          <div className="space-y-5 md:sticky md:top-24 md:self-start">
             <AnimatedSection animation="slide-right">
               <ProfileNameBio />
             </AnimatedSection>
@@ -71,147 +65,81 @@ export default function Home() {
             </AnimatedSection>
           </div>
 
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 space-y-4 sm:space-y-6">
-            {/* Experience Section */}
+          <div className="col-span-1 space-y-5 md:col-span-2 lg:col-span-3 lg:space-y-6">
             <AnimatedSection animation="fade-up" id="experience">
-              <Card className="bg-white/80 dark:bg-zinc-900/80 border-zinc-200 dark:border-zinc-800 backdrop-blur-sm rounded-xl shadow-sm">
+              <Card className="portfolio-section shadow-none">
                 <CardContent className="p-6 sm:p-8">
-                  <div className="flex items-center mb-6 sm:mb-8">
-                    <BriefcaseIcon className="w-5 h-5 mr-3 text-zinc-700 dark:text-zinc-500" />
-                    <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-                      Experience
-                    </h3>
+                  <div className="mb-8 flex items-center gap-2">
+                    <BriefcaseIcon className="h-4 w-4 text-muted-foreground" />
+                    <h2 className="portfolio-section-title">Experience</h2>
                   </div>
 
-                  <div className="space-y-8 sm:space-y-10">
+                  <div className="space-y-0">
                     {experienceInfo.map((experience, index) => (
-                      <AnimatedSection
+                      <ExperienceCard
                         key={index}
-                        animation="fade-up"
-                        delay={100 * (index + 1)}>
-                        <ExperienceCard
-                          title={experience.title}
-                          company={experience.company}
-                          period={experience.period}
-                          description={experience.description}
-                          achievements={experience.achievements}
-                          technologies={experience.technologies}
-                        />
-                      </AnimatedSection>
+                        title={experience.title}
+                        company={experience.company}
+                        period={experience.period}
+                        description={experience.description}
+                        achievements={experience.achievements}
+                        technologies={experience.technologies}
+                      />
                     ))}
                   </div>
                 </CardContent>
               </Card>
             </AnimatedSection>
 
-            {/* Credentials Section */}
             <AnimatedSection animation="fade-up" id="credentials">
               <CredentialsSection />
             </AnimatedSection>
 
-            {/* Skills Section */}
             <AnimatedSection animation="fade-up" id="skills">
-              <Card className="bg-white/80 dark:bg-zinc-900/80 border-zinc-200 dark:border-zinc-800 backdrop-blur-sm rounded-xl shadow-sm">
+              <Card className="portfolio-section shadow-none">
                 <CardContent className="p-6 sm:p-8">
-                  <div className="flex items-center mb-6 sm:mb-8">
-                    <CodeIcon className="w-5 h-5 mr-3 text-zinc-700 dark:text-zinc-500" />
-                    <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-                      Technical Skills
-                    </h3>
+                  <div className="mb-8 flex items-center gap-2">
+                    <CodeIcon className="h-4 w-4 text-muted-foreground" />
+                    <h2 className="portfolio-section-title">Technical Skills</h2>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <AnimatedSection animation="slide-right" delay={100}>
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                          Languages
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {technicalSkills.languages.map((skill, index) => (
-                            <SkillTagComponent key={index}>
-                              {skill}
-                            </SkillTagComponent>
+                  <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                    {skillGroups.map((group) => (
+                      <div key={group.label} className="space-y-3">
+                        <h3 className="portfolio-section-label">
+                          {group.label}
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5">
+                          {group.items.map((skill, index) => (
+                            <SkillTag key={index}>{skill}</SkillTag>
                           ))}
                         </div>
                       </div>
-                    </AnimatedSection>
-
-                    <AnimatedSection animation="slide-left" delay={200}>
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                          Frameworks
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {technicalSkills.frameworks.map((skill, index) => (
-                            <SkillTagComponent key={index}>
-                              {skill}
-                            </SkillTagComponent>
-                          ))}
-                        </div>
-                      </div>
-                    </AnimatedSection>
-
-                    <AnimatedSection animation="slide-right" delay={300}>
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                          Tools
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {technicalSkills.tools.map((skill, index) => (
-                            <SkillTagComponent key={index}>
-                              {skill}
-                            </SkillTagComponent>
-                          ))}
-                        </div>
-                      </div>
-                    </AnimatedSection>
-
-                    <AnimatedSection animation="slide-left" delay={400}>
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                          UI/UX
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {technicalSkills.uiux.map((skill, index) => (
-                            <SkillTagComponent key={index}>
-                              {skill}
-                            </SkillTagComponent>
-                          ))}
-                        </div>
-                      </div>
-                    </AnimatedSection>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
             </AnimatedSection>
 
-            {/* Projects Section */}
             <AnimatedSection animation="fade-up" id="projects">
-              <Card className="bg-white/80 dark:bg-zinc-900/80 border-zinc-200 dark:border-zinc-800 backdrop-blur-sm rounded-xl shadow-sm">
+              <Card className="portfolio-section shadow-none">
                 <CardContent className="p-6 sm:p-8">
-                  <div className="flex items-center justify-between mb-6 sm:mb-8">
-                    <div className="flex items-center">
-                      <GlobeIcon className="w-5 h-5 mr-3 text-zinc-700 dark:text-zinc-500" />
-                      <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-                        Recent Projects
-                      </h3>
-                    </div>
+                  <div className="mb-8 flex items-center gap-2">
+                    <GlobeIcon className="h-4 w-4 text-muted-foreground" />
+                    <h2 className="portfolio-section-title">
+                      Recent Projects
+                    </h2>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {projects.map((project, index) => (
-                      <AnimatedSection
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {projects.map((project) => (
+                      <ProjectCard
                         key={project.id}
-                        animation="zoom-in"
-                        delay={100 * (index + 1)}>
-                        <ProjectCard
-                          title={project.title}
-                          category={project.category}
-                          image={project.thumbnailImage}
-                          slug={project.slug}
-                          onClick={() => handleProjectClick(project.slug)}
-                        />
-                      </AnimatedSection>
+                        title={project.title}
+                        category={project.category}
+                        slug={project.slug}
+                        onClick={() => handleProjectClick(project.slug)}
+                      />
                     ))}
                   </div>
                 </CardContent>
@@ -220,18 +148,14 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Footer */}
         <AnimatedSection
           animation="fade-in"
           delay={500}
-          className="mt-12 sm:mt-16 py-6 sm:py-8 text-center text-xs sm:text-sm text-zinc-500 dark:text-zinc-500 border-t border-zinc-200 dark:border-zinc-800">
-          <p>
-            © {new Date().getFullYear()} Aniket Gautam. All rights reserved.
-          </p>
+          className="mt-14 border-t border-border py-8 text-center text-xs text-muted-foreground sm:text-sm">
+          <p>© {new Date().getFullYear()} Aniket Gautam. All rights reserved.</p>
         </AnimatedSection>
       </div>
 
-      {/* Project Modal */}
       <ProjectModal
         project={selectedProject}
         isOpen={isModalOpen}

@@ -1,8 +1,8 @@
 "use client";
 
-import { X, ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { SkillTag } from "@/components/skill-tag";
 import {
   Dialog,
   DialogContent,
@@ -15,105 +15,76 @@ export function ProjectModal({ project, isOpen, onClose }) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white/95 dark:bg-zinc-900/95 backdrop-blur-xl border-zinc-200 dark:border-zinc-800">
+      <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto rounded-2xl border-border bg-background">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+          <p className="portfolio-section-label">{project.category}</p>
+          <DialogTitle className="text-xl font-semibold tracking-tight">
             {project.title}
           </DialogTitle>
         </DialogHeader>
 
         <div className="space-y-6">
-          {/* Project Header */}
-          <div className="space-y-2">
-            <div className="text-sm text-zinc-500 dark:text-zinc-500">
-              {project.category}
-            </div>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              {project.shortDescription}
-            </p>
-          </div>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {project.shortDescription}
+          </p>
 
-          {/* Project Description */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              About This Project
-            </h3>
-            <div className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+          <div className="space-y-3">
+            <h3 className="portfolio-section-label">About</h3>
+            <div className="space-y-2 text-sm leading-relaxed text-muted-foreground">
               {project.description.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
           </div>
 
-          {/* Key Features */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              Key Features
-            </h3>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+          <div className="space-y-3">
+            <h3 className="portfolio-section-label">Features</h3>
+            <ul className="space-y-1.5 text-sm text-muted-foreground">
               {project.features.map((feature, index) => (
-                <li key={index}>{feature}</li>
+                <li
+                  key={index}
+                  className="before:mr-2 before:content-['—']">
+                  {feature}
+                </li>
               ))}
             </ul>
           </div>
 
-          {/* Technologies */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              Technologies Used
-            </h3>
-            <div className="flex flex-wrap gap-2">
+          <div className="space-y-3">
+            <h3 className="portfolio-section-label">Stack</h3>
+            <div className="flex flex-wrap gap-1.5">
               {project.technologies.map((tech, index) => (
-                <Badge
-                  key={index}
-                  variant="outline"
-                  className="bg-zinc-50 dark:bg-zinc-800/50 text-zinc-700 dark:text-zinc-300 border-zinc-200 dark:border-zinc-700">
-                  {tech}
-                </Badge>
+                <SkillTag key={index}>{tech}</SkillTag>
               ))}
             </div>
           </div>
 
-          {/* Project Details */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-zinc-50 dark:bg-zinc-800/30 rounded-xl border border-zinc-200 dark:border-zinc-800">
+          <div className="grid grid-cols-1 gap-4 rounded-xl border border-border bg-muted/30 p-4 sm:grid-cols-3">
             <div>
-              <h4 className="text-sm font-medium text-zinc-500 dark:text-zinc-500 mb-1">
-                Timeline
-              </h4>
-              <p className="text-sm text-zinc-900 dark:text-zinc-100">
-                {project.timeline}
-              </p>
+              <p className="portfolio-section-label mb-1">Timeline</p>
+              <p className="text-sm text-foreground">{project.timeline}</p>
             </div>
             <div>
-              <h4 className="text-sm font-medium text-zinc-500 dark:text-zinc-500 mb-1">
-                Role
-              </h4>
-              <p className="text-sm text-zinc-900 dark:text-zinc-100">
-                {project.role}
-              </p>
+              <p className="portfolio-section-label mb-1">Role</p>
+              <p className="text-sm text-foreground">{project.role}</p>
             </div>
             <div>
-              <h4 className="text-sm font-medium text-zinc-500 dark:text-zinc-500 mb-1">
-                Type
-              </h4>
-              <p className="text-sm text-zinc-900 dark:text-zinc-100">
+              <p className="portfolio-section-label mb-1">Type</p>
+              <p className="text-sm text-foreground">
                 {project.client || "Personal Project"}
               </p>
             </div>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap gap-3 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+          <div className="flex flex-wrap gap-2 border-t border-border pt-4">
             {project.liveUrl && (
-              <Button
-                asChild
-                className="bg-zinc-900 hover:bg-zinc-700 dark:bg-zinc-100 dark:hover:bg-zinc-300 text-white dark:text-zinc-900 rounded-lg">
+              <Button asChild size="sm" className="rounded-full">
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer">
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  View Live Project
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  Live demo
                 </a>
               </Button>
             )}
@@ -121,13 +92,14 @@ export function ProjectModal({ project, isOpen, onClose }) {
               <Button
                 asChild
                 variant="outline"
-                className="border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg">
+                size="sm"
+                className="rounded-full">
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer">
-                  <Github className="w-4 h-4 mr-2" />
-                  View Source Code
+                  <Github className="mr-2 h-4 w-4" />
+                  Source
                 </a>
               </Button>
             )}
