@@ -57,9 +57,11 @@
     ],
     "interests": [
       "Web Development",
-      "System Design",
-      "Open Source",
-      "Generative AI"
+      "Frontend Development",
+      "Software Development",
+      "Full-Stack Development",
+      "REST APIs",
+      "Open Source"
     ]
   },
   "navigation": [
@@ -87,7 +89,7 @@
   "experience": [
     {
       "title": "Full Stack Software Developer Intern",
-      "company": "Obitech Global Solutions Pvt Ltd",
+      "company": "Oknitech Global Solutions Pvt Ltd",
       "period": "Apr 2026 – Present",
       "description": "Developing and maintaining scalable full-stack web applications using React.js, Next.js, Node.js, and MySQL in a remote, collaborative development environment.",
       "achievements": [
@@ -307,46 +309,6 @@
         "Prisma",
         "Neon",
         "Clerk"
-      ]
-    },
-    {
-      "id": "expensifyai",
-      "slug": "expensifyai",
-      "title": "ExpensifyAI - AI Expense Tracker",
-      "name": "ExpensifyAI - AI Expense Tracker",
-      "category": "Full-Stack Web App",
-      "period": "Sep 2025",
-      "timeline": "Sep 2025",
-      "role": "Full-Stack Developer",
-      "client": "Personal Project",
-      "github": "https://github.com/Aniketgautam959/ExpensifyAI",
-      "githubUrl": "https://github.com/Aniketgautam959/ExpensifyAI",
-      "liveUrl": "https://expensify-ai-mwrr.vercel.app/",
-      "shortDescription": "AI-driven tracker for expense management with automated categorization and role-based sessions.",
-      "description": [
-        "ExpensifyAI is an intelligent expense tracking application that leverages AI algorithms to automatically categorize and manage personal and business expenses. The platform provides role-based access control, allowing different user types to manage their financial data efficiently.",
-        "Built with modern web technologies including Next.js, Prisma ORM, and PostgreSQL, the application offers real-time expense tracking, automated categorization, and comprehensive reporting features.",
-        "The AI-powered categorization system learns from user behavior and provides increasingly accurate expense classification, reducing manual data entry time by over 50%."
-      ],
-      "features": [
-        "AI-powered expense categorization with 50% higher accuracy",
-        "Role-based user sessions and access control",
-        "Real-time expense tracking and reporting",
-        "Automated data import from various sources",
-        "Secure OAuth and social login integration",
-        "Responsive design for mobile and desktop"
-      ],
-      "achievements": [
-        "Automated expense categorization with 50% higher accuracy",
-        "Optimized queries and REST APIs, reducing latency by 35%",
-        "Enabled multi-user access with OAuth, social logins, and Clerk authentication"
-      ],
-      "technologies": [
-        "Next.js",
-        "Prisma",
-        "PostgreSQL",
-        "Clerk",
-        "AI Algorithms"
       ]
     }
   ]
