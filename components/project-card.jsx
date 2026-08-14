@@ -1,28 +1,78 @@
 "use client";
 
-import { Card } from "@/components/ui/card";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
+import { SitePreview } from "@/components/site-preview";
 
-export function ProjectCard({ title, category, onClick }) {
+export function ProjectCard({ project, index, onClick }) {
+  if (!project) return null;
+
+  const liveUrl = project.liveUrl;
+  const githubUrl = project.githubUrl || project.github;
+  const [projectName, projectSubtitle] = project.title.split(" - ");
+
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="block h-full w-full text-left">
-      <Card className="group h-full border-border bg-card/60 transition-colors hover:border-foreground/20 hover:bg-muted/30">
-        <div className="flex h-full flex-col justify-between p-5 sm:p-6">
-          <div>
-            <p className="portfolio-section-label mb-2">{category}</p>
-            <h3 className="text-base font-medium leading-snug tracking-tight text-foreground sm:text-lg">
-              {title}
+    <article className="group border-t border-border/80 py-8 last:border-b sm:py-9">
+      <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-12">
+        <div className="flex-1">
+          <button type="button" onClick={onClick} className="w-full text-left">
+            <p className="section-kicker mb-3">
+              {String(index + 1).padStart(2, "0")}
+              <span className="mx-2 text-border">/</span>
+              {project.category}
+            </p>
+
+            <h3 className="font-serif text-[1.55rem] font-normal leading-snug text-foreground transition-colors duration-200 group-hover:text-highlight sm:text-[1.85rem]">
+              {projectName}
+              {projectSubtitle && (
+                <span className="italic text-muted-foreground">
+                  {" "}
+                  {projectSubtitle}
+                </span>
+              )}
             </h3>
+
+            <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
+              {project.shortDescription}
+            </p>
+
+            {project.technologies?.length > 0 && (
+              <p className="mt-4 text-[12px] text-muted-foreground/80">
+                {project.technologies.slice(0, 5).join("  ·  ")}
+              </p>
+            )}
+          </button>
+
+          <div className="mt-5 flex items-center gap-5">
+            {githubUrl && (
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="soft-link">
+                <Github className="h-3.5 w-3.5" />
+                Code
+              </a>
+            )}
+            <button
+              type="button"
+              onClick={onClick}
+              className="soft-link hidden sm:inline-flex">
+              Details
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </button>
           </div>
-          <span className="mt-6 inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors group-hover:text-foreground">
-            View details
-            <ArrowUpRight className="h-3.5 w-3.5" />
-          </span>
         </div>
-      </Card>
-    </button>
+
+        {liveUrl && (
+          <a
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative w-full shrink-0 md:w-[260px] lg:w-[300px]">
+            <SitePreview url={liveUrl} title={projectName} />
+          </a>
+        )}
+      </div>
+    </article>
   );
 }

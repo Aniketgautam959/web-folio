@@ -1,5 +1,3 @@
-import { SkillTag } from "@/components/skill-tag";
-
 export function ExperienceCard({
   title,
   company,
@@ -9,39 +7,38 @@ export function ExperienceCard({
   technologies,
 }) {
   return (
-    <article className="space-y-4 border-b border-border pb-8 last:border-0 last:pb-0">
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+    <article className="relative pl-7">
+      <span className="absolute left-0 top-2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-foreground/70" />
+
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
         <div>
-          <h4 className="text-base font-medium text-foreground">{title}</h4>
-          <p className="text-sm text-muted-foreground">{company}</p>
+          <h3 className="font-serif text-[1.25rem] font-normal text-foreground">
+            {title}
+          </h3>
+          <p className="mt-0.5 text-sm text-muted-foreground">{company}</p>
         </div>
-        <time className="w-fit rounded-full border border-border bg-muted/40 px-3 py-1 text-xs text-muted-foreground">
+        <time className="shrink-0 text-xs uppercase tracking-[0.14em] text-muted-foreground">
           {period}
         </time>
       </div>
 
-      <p className="text-sm leading-relaxed text-muted-foreground">
+      <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
         {description}
       </p>
 
-      <div className="space-y-2">
-        <p className="portfolio-section-label">Highlights</p>
-        <ul className="space-y-1.5">
-          {achievements.map((achievement, index) => (
-            <li
-              key={index}
-              className="text-sm leading-relaxed text-muted-foreground before:mr-2 before:text-muted-foreground/60 before:content-['—']">
-              {achievement}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="flex flex-wrap gap-1.5">
-        {technologies.map((tech, index) => (
-          <SkillTag key={index}>{tech}</SkillTag>
+      <ul className="mt-4 max-w-2xl space-y-2">
+        {achievements.map((achievement, index) => (
+          <li
+            key={index}
+            className="text-sm leading-relaxed text-muted-foreground before:mr-2 before:text-highlight before:content-['—']">
+            {achievement}
+          </li>
         ))}
-      </div>
+      </ul>
+
+      <p className="mt-5 text-[13px] tracking-wide text-muted-foreground">
+        {technologies.join("  ·  ")}
+      </p>
     </article>
   );
 }

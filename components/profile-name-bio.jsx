@@ -1,7 +1,8 @@
 "use client";
+
 import Image from "next/image";
+import { MapPin, ArrowUpRight } from "lucide-react";
 import { SocialLinks } from "@/components/social-links";
-import { MapPin, FileText, ArrowUpRight } from "lucide-react";
 import { getPersonalInfo, getAboutInfo } from "@/lib/data";
 
 export function ProfileNameBio() {
@@ -9,70 +10,57 @@ export function ProfileNameBio() {
   const aboutInfo = getAboutInfo();
 
   return (
-    <div className="portfolio-section overflow-hidden">
-      <div className="flex flex-col items-center px-6 pb-6 pt-8 text-center">
-        <div className="relative mb-5">
-          <Image
-            src={personalInfo.avatar || "/placeholder.svg"}
-            alt={personalInfo.name}
-            width={96}
-            height={96}
-            className="h-24 w-24 rounded-full border border-border object-cover ring-2 ring-background"
-          />
-          {personalInfo.availableForWork && (
-            <span className="absolute bottom-0.5 right-0.5 h-3 w-3 rounded-full border-2 border-card bg-emerald-500" />
-          )}
-        </div>
+    <section className="grid items-center gap-12 pb-4 pt-10 md:grid-cols-[1.15fr_auto] md:gap-16 md:pb-8 md:pt-16">
+      <div>
+        {personalInfo.availableForWork && (
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-muted/40 px-3 py-1 text-[12px] text-muted-foreground">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+            {personalInfo.availabilityLabel || "Available for work"}
+          </p>
+        )}
 
-        <h1 className="text-2xl font-semibold tracking-tight text-foreground">
-          {personalInfo.name}
+        <h1 className="font-serif text-[2.85rem] font-normal leading-[0.95] text-foreground sm:text-[4.5rem] lg:text-[5.15rem]">
+          Aniket
+          <br />
+          <span className="italic text-muted-foreground">Gautam</span>
         </h1>
 
-        <p className="mt-1.5 text-sm text-muted-foreground">
-          {personalInfo.title}
+        <p className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-[15px] text-muted-foreground sm:text-base">
+          <span>{personalInfo.title}</span>
+          <span className="text-border">/</span>
+          <span className="inline-flex items-center gap-1">
+            <MapPin className="h-3.5 w-3.5" />
+            {personalInfo.location}
+          </span>
         </p>
 
-        <div className="mt-3 flex items-center justify-center gap-1 text-xs text-muted-foreground">
-          <MapPin className="h-3 w-3" />
-          <span>{personalInfo.location}</span>
+        <p className="mt-6 max-w-md text-[15px] leading-[1.75] text-muted-foreground">
+          {aboutInfo.bio}
+        </p>
+
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <a
+            href={personalInfo.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-sm text-background transition-opacity hover:opacity-80">
+            Resume
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+          <SocialLinks socialLinks={personalInfo.social} />
         </div>
       </div>
 
-      <div className="mx-6 border-t border-border" />
-
-      <div className="flex flex-wrap justify-center gap-1.5 px-6 py-4">
-        {personalInfo.badges.map((badge, index) => (
-          <span
-            key={index}
-            className="inline-flex items-center rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">
-            {badge}
-          </span>
-        ))}
+      <div className="mx-auto h-64 w-52 overflow-hidden rounded-[1.75rem] ring-1 ring-border sm:h-80 sm:w-64 md:mx-0">
+        <Image
+          src={personalInfo.avatar || "/placeholder.svg"}
+          alt={personalInfo.name}
+          width={520}
+          height={680}
+          priority
+          className="h-full w-full object-cover object-[50%_16%]"
+        />
       </div>
-
-      <div className="mx-6 border-t border-border" />
-
-      <div className="px-6 py-5">
-        <p className="text-left text-[13px] leading-relaxed text-muted-foreground">
-          {aboutInfo.bio}
-        </p>
-      </div>
-
-      <div className="mx-6 border-t border-border" />
-
-      <div className="flex flex-col items-center gap-4 px-6 py-5">
-        <SocialLinks socialLinks={personalInfo.social} />
-
-        <a
-          href="https://drive.google.com/file/d/1udNWZ0E-FdBhVmqqXoBCkPgyvwfspCxC/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-foreground py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90 active:scale-[0.99]">
-          <FileText className="h-4 w-4" />
-          View Resume
-          <ArrowUpRight className="h-3.5 w-3.5 opacity-60" />
-        </a>
-      </div>
-    </div>
+    </section>
   );
 }

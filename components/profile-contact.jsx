@@ -1,56 +1,32 @@
 "use client";
-import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MapPin } from "lucide-react";
+
+import { ArrowUpRight } from "lucide-react";
 import { getPersonalInfo } from "@/lib/data";
 
 export function ProfileContact() {
   const personalInfo = getPersonalInfo();
 
-  const items = [
-    {
-      icon: Mail,
-      label: "Email",
-      href: `mailto:${personalInfo.email}`,
-      value: personalInfo.email,
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      href: `tel:${personalInfo.phone}`,
-      value: personalInfo.phone,
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: personalInfo.location,
-    },
-  ];
-
   return (
-    <Card className="portfolio-section shadow-none">
-      <CardContent className="p-6">
-        <h3 className="portfolio-section-label mb-5">Contact</h3>
+    <div className="border-t border-border/80 py-16 sm:py-20">
+      <p className="section-kicker">Contact</p>
+      <h2 className="mt-4 max-w-xl font-serif text-[2.1rem] font-normal leading-[1.1] sm:text-[3rem]">
+        Let’s build something
+        <span className="italic text-muted-foreground"> useful.</span>
+      </h2>
 
-        <div className="space-y-4">
-          {items.map(({ icon: Icon, label, href, value }) => (
-            <div key={label} className="flex items-start gap-3">
-              <Icon className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
-              <div className="min-w-0">
-                <p className="text-xs text-muted-foreground">{label}</p>
-                {href ? (
-                  <a
-                    href={href}
-                    className="break-all text-sm text-foreground transition-colors hover:text-muted-foreground">
-                    {value}
-                  </a>
-                ) : (
-                  <p className="text-sm text-foreground">{value}</p>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+      <a
+        href={`mailto:${personalInfo.email}`}
+        className="group mt-8 inline-flex items-center gap-2 font-serif text-[1.5rem] italic text-foreground transition-colors hover:text-highlight sm:text-[2.15rem]">
+        {personalInfo.email}
+        <ArrowUpRight className="h-5 w-5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:h-7 sm:w-7" />
+      </a>
+
+      <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted-foreground">
+        <a href={`tel:${personalInfo.phone}`} className="transition-colors hover:text-foreground">
+          {personalInfo.phone}
+        </a>
+        <span>{personalInfo.location}</span>
+      </div>
+    </div>
   );
 }

@@ -1,10 +1,22 @@
-import { Inter } from "next/font/google";
+import { Newsreader, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { AnimationProvider } from "@/contexts/animation-context";
 import { ThemeProvider } from "@/components/theme-provider";
 import { getMetaInfo } from "@/lib/data";
 
-const inter = Inter({ subsets: ["latin"] });
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+  style: ["normal", "italic"],
+  adjustFontFallback: false,
+});
 
 const metaInfo = getMetaInfo();
 
@@ -20,7 +32,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
+      <body
+        className={`${plusJakarta.variable} ${newsreader.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

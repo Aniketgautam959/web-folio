@@ -13,6 +13,8 @@
     "phone": "+91 8447821067",
     "workingHours": "Monday - Friday, 9am - 6pm IST",
     "availableForWork": true,
+    "availabilityLabel": "Open for SDE, Frontend, Full Stack & Freelance",
+    "resumeUrl": "https://drive.google.com/file/d/11dpAxVVQVFxVqMxavGh50xwYkxn7Ziok/view?usp=sharing",
     "badges": [
       "Full-Stack",
       "Frontend",
@@ -28,18 +30,13 @@
         "platform": "LinkedIn",
         "url": "https://www.linkedin.com/in/aniket-gautam-883053278/",
         "icon": "Linkedin"
-      },
-      {
-        "platform": "LeetCode",
-        "url": "https://leetcode.com/u/Aniketgautam901314/",
-        "icon": "Code"
       }
     ]
   },
   "about": {
-    "bio": "Full-Stack Developer passionate about building scalable web apps and AI-driven solutions. I specialize in Next.js and React, crafting fast, clean, and impactful digital experiences.",
+    "bio": "Full-Stack Developer building scalable web apps and AI-driven products. I work with Next.js, React, Laravel, and MySQL to ship fast, clean digital experiences.",
     "focus": [
-      "Building production-ready MERN/Next.js applications",
+      "Building production-ready Next.js and Laravel applications",
       "Optimizing API performance and database queries",
       "Creating intuitive and responsive user interfaces"
     ],
@@ -70,20 +67,24 @@
       "href": "/"
     },
     {
-      "label": "Experience",
-      "href": "#experience"
+      "label": "Projects",
+      "href": "#projects"
     },
     {
-      "label": "Credentials",
-      "href": "#credentials"
+      "label": "Experience",
+      "href": "#experience"
     },
     {
       "label": "Skills",
       "href": "#skills"
     },
     {
-      "label": "Projects",
-      "href": "#projects"
+      "label": "Credentials",
+      "href": "#credentials"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
     }
   ],
   "experience": [
@@ -91,16 +92,17 @@
       "title": "Full Stack Software Developer Intern",
       "company": "Oknitech Global Solutions Pvt Ltd",
       "period": "Apr 2026 – Present",
-      "description": "Developing and maintaining scalable full-stack web applications using React.js, Next.js, Node.js, and MySQL in a remote, collaborative development environment.",
+      "description": "Developing and maintaining scalable full-stack web applications using React.js, Next.js, Laravel, PHP, and MySQL in a remote, collaborative development environment.",
       "achievements": [
-        "Developed and maintained scalable full-stack web applications using React.js, Next.js, Node.js, and MySQL in a collaborative development environment.",
+        "Developed and maintained scalable full-stack web applications using React.js, Next.js, Laravel, PHP, and MySQL in a collaborative development environment.",
         "Configured and optimised MySQL database workflows using XAMPP, improving backend data handling efficiency by 35%.",
         "Collaborated with a cross-functional development team using Git and GitHub workflows, contributing to clean branch management and faster deployment cycles by 25%."
       ],
       "technologies": [
         "React.js",
         "Next.js",
-        "Node.js",
+        "Laravel",
+        "PHP",
         "MySQL",
         "XAMPP",
         "Git",
@@ -122,27 +124,6 @@
         "TypeScript",
         "MongoDB",
         "Clerk"
-      ]
-    },
-    {
-      "title": "Full-Stack Developer Intern",
-      "company": "IIPC KIET",
-      "period": "Jan 2025 – Mar 2025",
-      "description": "Developed scalable web apps using MERN stack and optimized backend APIs.",
-      "achievements": [
-        "Developed 5+ production-ready web apps using MERN stack",
-        "Improved API performance by 40% through query optimization and caching",
-        "Reduced page load time by 30% with code splitting and lazy loading"
-      ],
-      "technologies": [
-        "React.js",
-        "Next.js",
-        "PostgreSQL",
-        "MySQL",
-        "Node.js",
-        "REST APIs",
-        "Git",
-        "Agile"
       ]
     }
   ],
@@ -188,6 +169,7 @@
     "skills": [
       "Full-Stack Development",
       "Frontend Development",
+      "PHP / Laravel",
       "API Design",
       "Database",
       "SEO Optimization",
@@ -199,21 +181,27 @@
     "languages": [
       "JavaScript (ES6+)",
       "TypeScript",
+      "PHP",
       "HTML5",
       "CSS3"
     ],
     "frameworks": [
       "React.js",
       "Next.js",
+      "Laravel",
+      "Node.js",
       "Tailwind CSS",
       "REST APIs"
     ],
-    "tools": [
-      "MongoDB",
+    "databases": [
+      "MySQL",
       "PostgreSQL",
-      "Firebase",
+      "MongoDB",
       "Prisma",
-      "Neon",
+      "Neon"
+    ],
+    "tools": [
+      "XAMPP",
       "Git",
       "GitHub",
       "Postman",
@@ -225,11 +213,57 @@
   },
   "projects": [
     {
+      "id": "nexpend",
+      "slug": "nexpend",
+      "title": "Nexpend - See your next spend",
+      "name": "Nexpend - See your next spend",
+      "category": "Personal Finance",
+      "period": "2026 – Present",
+      "timeline": "2026 – Present",
+      "role": "Full-Stack Developer",
+      "client": "Personal Project",
+      "github": "https://github.com/Aniketgautam959/Nexpend",
+      "githubUrl": "https://github.com/Aniketgautam959/Nexpend",
+      "liveUrl": "https://nexpend-eta.vercel.app/",
+      "shortDescription": "Track UPI, Paytm, GPay, and PhonePe spends — screenshot dump, locked vs play money, and what you can actually spend this week.",
+      "description": [
+        "Nexpend is built around how people in India actually pay — UPI, Paytm, GPay, PhonePe — instead of bank logins or SMS scraping.",
+        "Most trackers show income minus spend. That leftover is misleading when rent, SIPs, and EMIs are already committed. Nexpend splits salary into locked money and play money, then shows the number that matters: what you can actually spend this week.",
+        "You do not type every rupee. Dump up to 10 payment screenshots. Nexpend reads amount, merchant, and UPI reference, skips failed payments, and skips duplicate UPI transactions."
+      ],
+      "features": [
+        "Screenshot dump — drop or upload up to 10 GPay / Paytm / PhonePe / invoice shots",
+        "Duplicate UPI skip — matches UPI/UTR IDs, otherwise amount + merchant + date",
+        "Failed payment filter — money-not-debited screens are not saved as expenses",
+        "Locked vs play money — rent, SIP, EMI stay locked; Swiggy / OTT / shopping is play",
+        "Weekly spendable — remaining play money paced across days left in the month (IST)",
+        "Recurring bills — Netflix, rent, SIPs auto-log on the chosen day of month",
+        "Category budgets, monthly overview, charts, and INR-aware AI insights",
+        "Email/password auth (JWT), onboarding, light/dark theme, and a demo account"
+      ],
+      "achievements": [
+        "Shipped a wallet that replaces bank login with screenshot dump",
+        "Built duplicate UPI detection and failed-payment rejection so spends stay accurate",
+        "Designed locked vs play money to show weekly spendable after rent, SIPs, and savings"
+      ],
+      "technologies": [
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "Prisma",
+        "JWT",
+        "OpenRouter",
+        "Chart.js"
+      ]
+    },
+    {
       "id": "taskifyminutes",
       "slug": "taskifyminutes",
-      "title": "TaskifyMinutes - AI Meeting Assistant",
-      "name": "TaskifyMinutes - AI Meeting Assistant",
-      "category": "AI-Powered Productivity Tool",
+      "title": "TaskifyMinutes - Meetings into Action",
+      "name": "TaskifyMinutes - Meetings into Action",
+      "category": "AI Productivity",
       "period": "Jan 2026",
       "timeline": "Jan 2026",
       "role": "Full-Stack Developer",
@@ -237,78 +271,30 @@
       "github": "https://github.com/Aniketgautam959/TaskifyMinutes",
       "githubUrl": "https://github.com/Aniketgautam959/TaskifyMinutes",
       "liveUrl": "https://taskify-minutes.vercel.app/",
-      "shortDescription": "AI-powered meeting assistant that transforms transcripts into actionable insights and tasks.",
+      "shortDescription": "AI-powered summaries, automated MOM generation, and smart task extraction — stop taking notes, start taking action.",
       "description": [
-        "TaskifyMinutes is an intelligent meeting management platform that leverages AI to analyze meeting transcripts and automatically generate summaries, action items, and key insights.",
-        "Built with Next.js 14, the application features real-time transcript processing, AI-powered analysis using advanced language models, and a beautiful, responsive dashboard for managing meetings.",
-        "The platform supports both text input and file uploads, making it easy to process meetings from various sources and formats."
+        "TaskifyMinutes turns raw meetings into momentum. It generates AI-powered summaries, minutes of meeting, and actionable tasks from audio, video, or transcripts.",
+        "Powered by Gemini Flash and built on Next.js, it transforms conversations into structured insights in seconds — with a live demo you can try on the site.",
+        "Features include MOM generation, transcript generation from recordings, and zero-shot task extraction from natural language."
       ],
       "features": [
-        "AI-powered transcript analysis and summarization",
-        "Automatic action item extraction from meetings",
-        "Support for text input and file upload",
-        "Real-time processing with progress indicators",
-        "Secure authentication and user management",
-        "Responsive dashboard with meeting history"
+        "MOM generator — actions, decisions, and informational notes separated automatically",
+        "Transcript generator — high-quality transcripts from audio or video in seconds",
+        "Task extraction — identify and assign tasks from natural conversation",
+        "Live text demo — paste a conversation and see analysis instantly",
+        "Built with Gemini Flash on Next.js, TypeScript, and Tailwind CSS"
       ],
       "achievements": [
-        "Implemented AI-driven transcript analysis with high accuracy",
-        "Built seamless file upload and text processing pipeline",
-        "Created intuitive UI for meeting management and insights",
-        "Integrated secure authentication with Clerk"
+        "Shipped an AI meeting pipeline from raw audio/video/transcript to structured MOM and tasks",
+        "Integrated Gemini Flash for fast summarization and task extraction",
+        "Designed a live demo so visitors can try the product without signing up"
       ],
       "technologies": [
-        "Next.js 14",
-        "React",
+        "Next.js 16",
         "TypeScript",
         "Tailwind CSS",
-        "AI/ML APIs",
-        "Clerk",
-        "PostgreSQL",
-        "Prisma"
-      ]
-    },
-    {
-      "id": "naptrix",
-      "slug": "naptrix",
-      "title": "Naptrix - Smart AI Sleep Tracker",
-      "name": "Naptrix - Smart AI Sleep Tracker",
-      "category": "Health & Wellness Platform",
-      "period": "Oct 2025 – Present",
-      "timeline": "Oct 2025 – Present",
-      "role": "Full-Stack Developer",
-      "client": "Personal Project",
-      "github": "https://github.com/Aniketgautam959/Naptrix-Smart-AI-Sleep-Tracker",
-      "githubUrl": "https://github.com/Aniketgautam959/Naptrix-Smart-AI-Sleep-Tracker",
-      "liveUrl": "https://naptrix-liard.vercel.app/",
-      "shortDescription": "Modern sleep tracking app with real-time analytics, personalized insights, and beautiful visualizations.",
-      "description": [
-        "Naptrix is a modern sleep tracking web application that helps users record, visualize, and analyze sleep patterns with an intuitive UI and real-time insights.",
-        "Built with Next.js 15, React 19, TypeScript, and Tailwind CSS, it features a responsive dashboard, interactive charts, and secure authentication via Clerk.",
-        "Data is stored in a Neon PostgreSQL database via Prisma, with Server Actions powering fast, type-safe operations."
-      ],
-      "features": [
-        "Sleep duration tracking with add/edit/delete records",
-        "Real-time statistics and history with search & filters",
-        "Interactive Chart.js visualizations (best/worst, averages)",
-        "Secure authentication with Google/GitHub/Facebook and email",
-        "Personalized dashboards and protected routes",
-        "Fully responsive, performant UI with smooth animations"
-      ],
-      "achievements": [
-        "Delivered a production-ready analytics dashboard with responsive charts",
-        "Implemented secure auth and protected routes using Clerk",
-        "Set up Neon + Prisma for scalable, serverless Postgres"
-      ],
-      "technologies": [
-        "Next.js 15",
-        "React 19",
-        "TypeScript",
-        "Tailwind CSS",
-        "Chart.js",
-        "Prisma",
-        "Neon",
-        "Clerk"
+        "Gemini AI",
+        "Google Cloud Storage"
       ]
     }
   ]

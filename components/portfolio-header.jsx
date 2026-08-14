@@ -10,12 +10,15 @@ import { getNavItems, getPersonalInfo } from "@/lib/data";
 export function PortfolioHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [scrolled, setScrolled] = useState(false);
 
   const navItems = getNavItems();
   const personalInfo = getPersonalInfo();
 
   useEffect(() => {
     const handleScroll = () => {
+      setScrolled(window.scrollY > 12);
+
       const sections = navItems
         .filter((item) => item.href.startsWith("#"))
         .map((item) => item.href.substring(1));
@@ -31,118 +34,87 @@ export function PortfolioHeader() {
         }
       }
 
-      if (window.scrollY < 100) {
+      if (window.scrollY < 80) {
         setActiveSection("");
       }
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [navItems]);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-
   return (
-    <header className="fixed top-4 left-1/2 z-50 w-full max-w-full -translate-x-1/2 px-4 sm:top-5">
-      <nav className="relative">
-        <div className="rounded-2xl border border-border/80 bg-background/80 px-4 py-2.5 shadow-sm backdrop-blur-md sm:px-5">
-          <div className="flex items-center justify-between gap-3">
-            <Link href="/" className="group flex items-center">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-muted/50 text-xs font-semibold text-foreground transition-colors group-hover:bg-muted">
-                AG
-              </div>
-            </Link>
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+      <div
+        className={cn(
+          "site-shell !px-3 sm:!px-4 rounded-full border transition-colors duration-200",
+          scrolled || mobileMenuOpen
+            ? "border-border bg-background/75 backdrop-blur-xl"
+            : "border-transparent bg-background/40 backdrop-blur-md"
+        )}>
+        <div className="flex h-12 items-center justify-between">
+          <Link
+            href="/"
+            className="pl-2 font-serif text-[15px] italic text-foreground">
+            {personalInfo.name}
+          </Link>
 
-            <div className="hidden items-center gap-6 md:flex">
-              {navItems.slice(1).map((item) => {
-                const isActive =
-                  item.href === "/"
-                    ? activeSection === ""
-                    : activeSection === item.href.substring(1);
-
-                return (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className={cn(
-                      "relative text-sm transition-colors",
-                      isActive
-                        ? "font-medium text-foreground"
-                        : "text-muted-foreground hover:text-foreground"
-                    )}>
-                    {item.label}
-                    {isActive && (
-                      <span className="absolute -bottom-1 left-0 right-0 mx-auto h-px w-full max-w-[1.25rem] bg-foreground" />
-                    )}
-                  </Link>
-                );
-              })}
-            </div>
-
-            <div className="flex items-center gap-2">
-              <ThemeToggle />
-              <a
-                href={`mailto:${personalInfo.email}`}
-                className="hidden rounded-full border border-border bg-muted/40 px-3.5 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-muted sm:inline-block md:text-sm">
-                Contact
-              </a>
-              <button
-                type="button"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-muted/40 md:hidden"
-                onClick={toggleMobileMenu}
-                aria-label="Toggle menu">
-                {mobileMenuOpen ? (
-                  <X size={18} />
-                ) : (
-                  <Menu size={18} />
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div
-          className={cn(
-            "absolute left-0 right-0 top-full mt-2 origin-top rounded-2xl border border-border bg-background/95 p-3 shadow-lg backdrop-blur-md transition-all duration-200 md:hidden",
-            mobileMenuOpen
-              ? "scale-100 opacity-100"
-              : "pointer-events-none scale-[0.98] opacity-0"
-          )}>
-          <div className="space-y-0.5">
-            {navItems.map((item) => {
-              const isActive =
-                item.href === "/"
-                  ? activeSection === ""
-                  : activeSection === item.href.substring(1);
+          <nav className="hidden items-center gap-1 md:flex">
+            {navItems.slice(1).map((item) => {
+              const isActive = activeSection === item.href.substring(1);
 
               return (
                 <Link
                   key={item.label}
                   href={item.href}
                   className={cn(
-                    "block rounded-xl px-3 py-2.5 text-sm transition-colors",
+                    "rounded-full px-3 py-1.5 text-[13px] transition-colors",
                     isActive
-                      ? "bg-muted font-medium text-foreground"
-                      : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
-                  )}
-                  onClick={() => setMobileMenuOpen(false)}>
+                      ? "bg-foreground text-background"
+                      : "text-muted-foreground hover:text-foreground"
+                  )}>
                   {item.label}
                 </Link>
               );
             })}
-            <div className="mt-2 border-t border-border pt-2">
-              <a
-                href={`mailto:${personalInfo.email}`}
-                className="block rounded-xl px-3 py-2.5 text-center text-sm text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
-                onClick={() => setMobileMenuOpen(false)}>
-                {personalInfo.email}
-              </a>
-            </div>
+          </nav>
+
+          <div className="flex items-center gap-1">
+            <ThemeToggle />
+            <button
+              type="button"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-foreground md:hidden"
+              onClick={() => setMobileMenuOpen((open) => !open)}
+              aria-label="Toggle menu">
+              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
           </div>
         </div>
-      </nav>
+      </div>
+
+      {mobileMenuOpen && (
+        <div className="site-shell mt-2 rounded-2xl border border-border bg-background/95 p-2 backdrop-blur-xl md:hidden">
+          {navItems.slice(1).map((item) => {
+            const isActive = activeSection === item.href.substring(1);
+
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={cn(
+                  "block rounded-xl px-3 py-2.5 text-sm",
+                  isActive
+                    ? "bg-muted text-foreground"
+                    : "text-muted-foreground"
+                )}
+                onClick={() => setMobileMenuOpen(false)}>
+                {item.label}
+              </Link>
+            );
+          })}
+        </div>
+      )}
     </header>
   );
 }
