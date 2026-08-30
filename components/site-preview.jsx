@@ -7,8 +7,6 @@ const VIEW_WIDTH = 1440;
 const VIEW_HEIGHT = 900;
 
 export function SitePreview({ url, title, image }) {
-  if (!url && !image) return null;
-
   const host = url
     ? url.replace(/^https?:\/\//, "").replace(/\/$/, "")
     : title;
@@ -16,7 +14,7 @@ export function SitePreview({ url, title, image }) {
   const [scale, setScale] = useState(0.2);
 
   useEffect(() => {
-    if (image) return;
+    if (image || !url) return;
     const el = frameRef.current;
     if (!el) return;
 
@@ -28,7 +26,9 @@ export function SitePreview({ url, title, image }) {
     const observer = new ResizeObserver(update);
     observer.observe(el);
     return () => observer.disconnect();
-  }, [image]);
+  }, [image, url]);
+
+  if (!url && !image) return null;
 
   return (
     <div className="overflow-hidden rounded-xl border border-border/80 bg-card shadow-[0_8px_30px_-18px_rgba(0,0,0,0.45)]">

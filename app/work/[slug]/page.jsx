@@ -6,14 +6,19 @@ import { SitePreview } from "@/components/site-preview";
 import { PortfolioHeader } from "@/components/portfolio-header";
 import { PrintButton } from "./print-button";
 
+async function resolveParams(params) {
+  return typeof params?.then === "function" ? await params : params;
+}
+
 export function generateStaticParams() {
   return getAllProjects()
-    .filter((project) => project.caseStudy)
+    .filter((project) => project.caseStudy && project.slug)
     .map((project) => ({ slug: project.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const project = getProjectBySlug(params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await resolveParams(params);
+  const project = getProjectBySlug(slug);
   if (!project) return {};
 
   return {
@@ -22,8 +27,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function CaseStudyPage({ params }) {
-  const project = getProjectBySlug(params.slug);
+export default async function CaseStudyPage({ params }) {
+  const { slug } = await resolveParams(params);
+  const project = getProjectBySlug(slug);
   if (!project?.caseStudy) notFound();
 
   const personalInfo = getPersonalInfo();
@@ -87,7 +93,7 @@ export default function CaseStudyPage({ params }) {
         <section className="mt-12">
           <h2 className="section-kicker mb-4">Architecture</h2>
           <ul className="space-y-2">
-            {study.architecture.map((item) => (
+            {(study.architecture || []).map((item) => (
               <li
                 key={item}
                 className="text-sm leading-relaxed text-muted-foreground before:mr-2 before:text-highlight before:content-['—']">
@@ -100,7 +106,7 @@ export default function CaseStudyPage({ params }) {
         <section className="mt-12">
           <h2 className="section-kicker mb-4">Trade-offs</h2>
           <ul className="space-y-2">
-            {study.tradeoffs.map((item) => (
+            {(study.tradeoffs || []).map((item) => (
               <li
                 key={item}
                 className="text-sm leading-relaxed text-muted-foreground before:mr-2 before:text-highlight before:content-['—']">
