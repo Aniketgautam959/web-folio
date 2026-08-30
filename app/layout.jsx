@@ -22,7 +22,7 @@ const newsreader = Newsreader({
 });
 
 const metaInfo = getMetaInfo();
-const siteUrl = metaInfo.siteUrl || "https://web-folio.vercel.app";
+const siteUrl = metaInfo.siteUrl || "https://aniket-gautam.vercel.app";
 const ogImage = metaInfo.ogImage || "/og.jpg";
 
 export const metadata = {
@@ -39,7 +39,7 @@ export const metadata = {
     description: metaInfo.description,
     url: siteUrl,
     siteName: "Aniket Gautam",
-    locale: "en_IN",
+    locale: "en_US",
     type: "website",
     images: [
       {

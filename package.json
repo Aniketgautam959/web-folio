@@ -2,9 +2,6 @@
   "name": "my-v0-project",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": ">=18.17.0"
-  },
   "scripts": {
     "build": "next build",
     "dev": "next dev",
@@ -46,7 +43,6 @@
     "cmdk": "latest",
     "date-fns": "4.1.0",
     "embla-carousel-react": "latest",
-    "framer-motion": "^11.18.2",
     "input-otp": "latest",
     "lucide-react": "^0.454.0",
     "next": "14.2.16",
