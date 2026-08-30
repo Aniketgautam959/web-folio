@@ -115,7 +115,32 @@ body {
   }
 
   .soft-link {
-    @apply inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground;
+    @apply relative inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground;
+  }
+
+  .soft-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: currentColor;
+    transition: transform 0.3s ease;
+  }
+
+  .soft-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .lift-card {
+    @apply transition-transform duration-300 ease-out;
+  }
+
+  .lift-card:hover {
+    transform: translateY(-6px) scale(1.02);
   }
 
   .hairline {
@@ -137,4 +162,30 @@ body {
 
 .animate-pulse-dot {
   animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .lift-card,
+  .lift-card:hover,
+  .soft-link::after {
+    transition: none;
+    transform: none;
+  }
+}
+
+@media print {
+  .no-print,
+  header,
+  .floating-cta {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
 }

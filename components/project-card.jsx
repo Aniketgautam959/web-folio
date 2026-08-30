@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowUpRight, Github } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, FileDown, Github } from "lucide-react";
 import { SitePreview } from "@/components/site-preview";
 
 export function ProjectCard({ project, index, onClick }) {
@@ -21,7 +22,7 @@ export function ProjectCard({ project, index, onClick }) {
               {project.category}
             </p>
 
-            <h3 className="font-serif text-[1.55rem] font-normal leading-snug text-foreground transition-colors duration-200 group-hover:text-highlight sm:text-[1.85rem]">
+            <h3 className="font-serif text-[1.55rem] font-normal leading-snug text-foreground transition-colors duration-300 group-hover:text-highlight sm:text-[1.85rem]">
               {projectName}
               {projectSubtitle && (
                 <span className="italic text-muted-foreground">
@@ -42,7 +43,7 @@ export function ProjectCard({ project, index, onClick }) {
             )}
           </button>
 
-          <div className="mt-5 flex items-center gap-5">
+          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
             {githubUrl && (
               <a
                 href={githubUrl}
@@ -52,6 +53,12 @@ export function ProjectCard({ project, index, onClick }) {
                 <Github className="h-3.5 w-3.5" />
                 Code
               </a>
+            )}
+            {project.caseStudy && (
+              <Link href={`/work/${project.slug}`} className="soft-link">
+                <FileDown className="h-3.5 w-3.5" />
+                One-pager
+              </Link>
             )}
             <button
               type="button"
@@ -68,8 +75,12 @@ export function ProjectCard({ project, index, onClick }) {
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative w-full shrink-0 md:w-[260px] lg:w-[300px]">
-            <SitePreview url={liveUrl} title={projectName} />
+            className="lift-card relative w-full shrink-0 md:w-[280px] lg:w-[320px]">
+            <SitePreview
+              url={liveUrl}
+              title={projectName}
+              image={project.previewImage}
+            />
           </a>
         )}
       </div>

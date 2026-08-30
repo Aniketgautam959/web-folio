@@ -1,6 +1,7 @@
 "use client";
 
-import { ExternalLink, Github } from "lucide-react";
+import Link from "next/link";
+import { ExternalLink, FileDown, Github } from "lucide-react";
 import { SkillTag } from "@/components/skill-tag";
 import { SitePreview } from "@/components/site-preview";
 import {
@@ -30,7 +31,11 @@ export function ProjectModal({ project, isOpen, onClose }) {
               target="_blank"
               rel="noopener noreferrer"
               className="block">
-              <SitePreview url={project.liveUrl} title={project.title} />
+              <SitePreview
+                url={project.liveUrl}
+                title={project.title}
+                image={project.previewImage}
+              />
             </a>
           )}
 
@@ -54,10 +59,18 @@ export function ProjectModal({ project, isOpen, onClose }) {
                 href={project.githubUrl || project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground">
                 <Github className="h-3.5 w-3.5" />
                 Source
               </a>
+            )}
+            {project.caseStudy && (
+              <Link
+                href={`/work/${project.slug}`}
+                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground">
+                <FileDown className="h-3.5 w-3.5" />
+                One-pager
+              </Link>
             )}
           </div>
 

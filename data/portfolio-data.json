@@ -1,8 +1,10 @@
 {
   "meta": {
     "title": "Aniket Gautam | Full Stack Developer",
-    "description": "Portfolio website showcasing full-stack development work, projects, and skills",
-    "favicon": "/favicon.png"
+    "description": "Full-stack developer building Next.js, React, and Laravel products — open for SDE, frontend, and freelance work.",
+    "favicon": "/favicon.png",
+    "siteUrl": "https://web-folio.vercel.app",
+    "ogImage": "/og.jpg"
   },
   "personal": {
     "name": "Aniket Gautam",
@@ -14,6 +16,7 @@
     "workingHours": "Monday - Friday, 9am - 6pm IST",
     "availableForWork": true,
     "availabilityLabel": "Open for SDE, Frontend, Full Stack & Freelance",
+    "replyTime": "Usually replies within 24 hrs",
     "resumeUrl": "https://drive.google.com/file/d/1qE4K0zbkq3-i3hb5Hs2yG9JzIAkDQLGE/view?usp=sharing",
     "badges": [
       "Full-Stack",
@@ -256,7 +259,23 @@
         "JWT",
         "OpenRouter",
         "Chart.js"
-      ]
+      ],
+      "caseStudy": {
+        "problem": "Typical expense apps show income minus spend. That leftover is misleading when rent, SIPs, and EMIs are already committed. Bank-login trackers are heavy, and people in India already pay through UPI screenshots — GPay, Paytm, PhonePe — not account aggregators.",
+        "approach": "Nexpend is an India-first wallet that never asks for bank access. Users dump up to 10 payment screenshots. Vision reads amount, merchant, and UPI reference. Failed payments are rejected. Duplicate UPI / UTR / amount+merchant+day rows are skipped. Salary is split into locked money and play money so the number on screen is what you can actually spend this week.",
+        "architecture": [
+          "Next.js 15 App Router + React 19 + TypeScript for the product surface",
+          "PostgreSQL + Prisma for users, expenses, recurring bills, and category budgets",
+          "JWT sessions (jose) instead of a third-party auth vendor",
+          "OpenRouter vision for screenshot OCR; text model for INR-aware insights",
+          "IST calendar math in playMoney — locked recurring subtracted, leftover paced across the week"
+        ],
+        "tradeoffs": [
+          "Screenshot dump over bank aggregation: faster to trust, no AA/SMS scraping, but OCR can miss a cropped UPI id — hence fingerprint fallbacks.",
+          "Weekly play money over monthly leftover: more honest for Indian pay cycles, more logic to get right around month boundaries.",
+          "Custom JWT over Clerk: fewer moving parts and cost, more auth surface to maintain."
+        ]
+      }
     },
     {
       "id": "taskifyminutes",
@@ -271,6 +290,7 @@
       "github": "https://github.com/Aniketgautam959/TaskifyMinutes",
       "githubUrl": "https://github.com/Aniketgautam959/TaskifyMinutes",
       "liveUrl": "https://taskify-minutes.vercel.app/",
+      "previewImage": "/previews/taskifyminutes-dark.png",
       "shortDescription": "AI-powered summaries, automated MOM generation, and smart task extraction — stop taking notes, start taking action.",
       "description": [
         "TaskifyMinutes turns raw meetings into momentum. It generates AI-powered summaries, minutes of meeting, and actionable tasks from audio, video, or transcripts.",
@@ -295,7 +315,22 @@
         "Tailwind CSS",
         "Gemini AI",
         "Google Cloud Storage"
-      ]
+      ],
+      "caseStudy": {
+        "problem": "Meetings produce talk, not action. Notes get lost, MOM is written late, and tasks stay buried in conversation. People either skip documentation or spend longer writing it than the meeting itself.",
+        "approach": "TaskifyMinutes turns audio, video, or raw transcript into structured output: a summary, minutes with actions vs decisions vs notes, and extracted tasks. A live text demo lets anyone try the pipeline without signing up.",
+        "architecture": [
+          "Next.js 15 + TypeScript + Tailwind for the marketing site and app",
+          "Gemini Flash for fast summarization, MOM drafting, and zero-shot task extraction",
+          "Google Cloud Storage for uploaded recordings",
+          "A public demo path that analyzes pasted conversation without a full account"
+        ],
+        "tradeoffs": [
+          "Gemini Flash over a heavier model: seconds-level latency and cost that fit a demo, slightly less nuance on messy transcripts.",
+          "Live demo without auth: higher conversion and recruiter-friendly, more need to rate-limit and keep the path read-only.",
+          "File + text inputs: covers Zoom exports and typed notes, but transcription quality still depends on the recording."
+        ]
+      }
     }
   ]
 }
