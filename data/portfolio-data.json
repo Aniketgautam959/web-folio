@@ -2,7 +2,7 @@
   "meta": {
     "title": "Aniket Gautam | Full Stack Developer",
     "description": "Portfolio website showcasing full-stack development work, projects, and skills",
-    "favicon": "/favicon.svg"
+    "favicon": "/favicon.png"
   },
   "personal": {
     "name": "Aniket Gautam",
@@ -14,7 +14,7 @@
     "workingHours": "Monday - Friday, 9am - 6pm IST",
     "availableForWork": true,
     "availabilityLabel": "Open for SDE, Frontend, Full Stack & Freelance",
-    "resumeUrl": "https://drive.google.com/file/d/11dpAxVVQVFxVqMxavGh50xwYkxn7Ziok/view?usp=sharing",
+    "resumeUrl": "https://drive.google.com/file/d/1qE4K0zbkq3-i3hb5Hs2yG9JzIAkDQLGE/view?usp=sharing",
     "badges": [
       "Full-Stack",
       "Frontend",
@@ -156,7 +156,7 @@
       {
         "degree": "B.Tech in Computer Science",
         "institution": "KIET Group of Institutions, A.K.T.U",
-        "year": "2022 – 2026 (CGPA: 7.7/10)",
+        "year": "2022 – 2026 (CGPA: 8/10)",
         "logo": "/kiet.jpg"
       },
       {
@@ -290,7 +290,7 @@
         "Designed a live demo so visitors can try the product without signing up"
       ],
       "technologies": [
-        "Next.js 16",
+        "Next.js 15",
         "TypeScript",
         "Tailwind CSS",
         "Gemini AI",

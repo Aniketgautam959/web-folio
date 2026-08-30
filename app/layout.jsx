@@ -26,6 +26,7 @@ export const metadata = {
   generator: "v0.dev",
   icons: {
     icon: metaInfo.favicon,
+    apple: "/apple-touch-icon.png",
   },
 };
 
