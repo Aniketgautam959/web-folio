@@ -59,7 +59,7 @@ export default function Home() {
         <ProfileNameBio />
         <ProfileAbout />
 
-        <AnimatedSection animation="fade-up" id="projects" className="py-12 sm:py-16">
+        <AnimatedSection id="projects" className="py-12 sm:py-16">
           <SectionHeading index="01" title="My work" />
           <div>
             {projects.map((project, index) => (
@@ -73,7 +73,7 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection animation="fade-up" id="experience" className="py-12 sm:py-16">
+        <AnimatedSection id="experience" className="py-12 sm:py-16">
           <SectionHeading index="02" title="Experience" />
           <div className="space-y-4">
             {experienceInfo.map((experience, index) => (
@@ -90,7 +90,7 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection animation="fade-up" id="skills" className="py-12 sm:py-16">
+        <AnimatedSection id="skills" className="py-12 sm:py-16">
           <div className="mb-8 flex justify-center sm:mb-10">
             <ZineBox as="h2" className="px-6 py-3 text-xl sm:text-2xl">
               Skills I work with
@@ -118,12 +118,12 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection animation="fade-up" id="credentials" className="py-12 sm:py-16">
+        <AnimatedSection id="credentials" className="py-12 sm:py-16">
           <SectionHeading index="04" title="Credentials" />
           <CredentialsSection />
         </AnimatedSection>
 
-        <AnimatedSection animation="fade-up" id="contact">
+        <AnimatedSection id="contact">
           <ProfileContact />
         </AnimatedSection>
 

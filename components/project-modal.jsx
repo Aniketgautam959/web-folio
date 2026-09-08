@@ -16,7 +16,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="zine-frame max-h-[90vh] max-w-3xl overflow-y-auto rounded-none border-2 border-foreground bg-background p-6 shadow-[8px_8px_0_0_hsl(var(--foreground))] sm:p-8 sm:rounded-none">
+      <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto rounded-none border-2 border-foreground bg-background p-6 shadow-[8px_8px_0_0_hsl(var(--foreground))] sm:p-8 sm:rounded-none">
         <DialogHeader className="space-y-2 text-left">
           <p className="section-kicker">{project.category}</p>
           <DialogTitle className="text-2xl font-bold uppercase tracking-tight sm:text-3xl">
