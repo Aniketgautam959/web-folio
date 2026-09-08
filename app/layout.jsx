@@ -1,4 +1,4 @@
-import { Newsreader, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { AnimationProvider } from "@/contexts/animation-context";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -13,12 +13,11 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const newsreader = Newsreader({
+const spaceMono = Space_Mono({
   subsets: ["latin"],
-  variable: "--font-serif",
+  weight: ["400", "700"],
+  variable: "--font-mono",
   display: "swap",
-  style: ["normal", "italic"],
-  adjustFontFallback: false,
 });
 
 const metaInfo = getMetaInfo();
@@ -60,13 +59,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${plusJakarta.variable} ${newsreader.variable} font-sans antialiased`}>
+        className={`${plusJakarta.variable} ${spaceMono.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
+          storageKey="folio-zine-theme-dark"
           disableTransitionOnChange>
           <AnimationProvider>
             <PageFade>

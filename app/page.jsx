@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Code2, Database, Layers, Wrench } from "lucide-react";
 import { ProjectCard } from "@/components/project-card";
 import { ProjectModal } from "@/components/project-modal";
 import { getAllProjects, getProjectBySlug } from "@/lib/data";
@@ -12,7 +13,15 @@ import { ProfileContact } from "@/components/profile-contact";
 import { CredentialsSection } from "@/components/credentials-section";
 import { PortfolioHeader } from "@/components/portfolio-header";
 import { SectionHeading } from "@/components/section-heading";
+import { ZineBox } from "@/components/zine";
 import { getExperienceInfo, getTechnicalSkillsInfo } from "@/lib/data";
+
+const skillIcons = {
+  Languages: Code2,
+  Frameworks: Layers,
+  Databases: Database,
+  Tools: Wrench,
+};
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -44,16 +53,14 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen bg-background text-foreground">
-      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_70%_40%_at_50%_-10%,hsl(var(--highlight)/0.08),transparent_50%)]" />
-
       <PortfolioHeader />
 
       <div className="site-shell relative z-10 pb-16 pt-24 sm:pb-24 sm:pt-28">
         <ProfileNameBio />
         <ProfileAbout />
 
-        <AnimatedSection animation="fade-up" id="projects" className="py-10 sm:py-14">
-          <SectionHeading index="01" title="Personal projects" />
+        <AnimatedSection animation="fade-up" id="projects" className="py-12 sm:py-16">
+          <SectionHeading index="01" title="My work" />
           <div>
             {projects.map((project, index) => (
               <ProjectCard
@@ -66,9 +73,9 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection animation="fade-up" id="experience" className="py-10 sm:py-14">
+        <AnimatedSection animation="fade-up" id="experience" className="py-12 sm:py-16">
           <SectionHeading index="02" title="Experience" />
-          <div className="ml-1 space-y-12 border-l border-border">
+          <div className="space-y-4">
             {experienceInfo.map((experience, index) => (
               <ExperienceCard
                 key={index}
@@ -83,27 +90,35 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection animation="fade-up" id="skills" className="py-10 sm:py-14">
-          <SectionHeading index="03" title="Technical skills" />
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {skillGroups.map((group) => (
-              <div key={group.label}>
-                <p className="section-kicker mb-4">{group.label}</p>
-                <ul className="flex flex-wrap gap-1.5">
-                  {group.items.map((skill) => (
-                    <li
-                      key={skill}
-                      className="rounded-full border border-border px-2.5 py-1 text-[12px] text-muted-foreground">
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+        <AnimatedSection animation="fade-up" id="skills" className="py-12 sm:py-16">
+          <div className="mb-8 flex justify-center sm:mb-10">
+            <ZineBox as="h2" className="px-6 py-3 text-xl sm:text-2xl">
+              Skills I work with
+            </ZineBox>
+          </div>
+          <div className="grid gap-px border-2 border-foreground bg-foreground sm:grid-cols-2">
+            {skillGroups.map((group) => {
+              const Icon = skillIcons[group.label] || Code2;
+              return (
+                <div
+                  key={group.label}
+                  className="bg-background p-6 transition-colors duration-200 hover:bg-foreground hover:text-background">
+                  <div className="mb-4 flex items-center gap-3">
+                    <Icon className="h-7 w-7 stroke-[1.4]" />
+                    <h3 className="text-lg font-bold uppercase tracking-tight">
+                      {group.label}
+                    </h3>
+                  </div>
+                  <p className="font-mono text-[12px] uppercase leading-6 tracking-[0.06em]">
+                    {group.items.join("  ·  ")}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </AnimatedSection>
 
-        <AnimatedSection animation="fade-up" id="credentials" className="py-10 sm:py-14">
+        <AnimatedSection animation="fade-up" id="credentials" className="py-12 sm:py-16">
           <SectionHeading index="04" title="Credentials" />
           <CredentialsSection />
         </AnimatedSection>
@@ -112,7 +127,7 @@ export default function Home() {
           <ProfileContact />
         </AnimatedSection>
 
-        <footer className="border-t border-border/80 py-8 text-center text-[11px] tracking-wide text-muted-foreground">
+        <footer className="border-t-2 border-foreground py-8 text-center font-mono text-[11px] uppercase tracking-[0.16em]">
           <p>© {new Date().getFullYear()} Aniket Gautam</p>
         </footer>
       </div>

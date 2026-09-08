@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight, FileDown, Github } from "lucide-react";
 import { SitePreview } from "@/components/site-preview";
+import { ZineStar } from "@/components/zine";
 
 export function ProjectCard({ project, index, onClick }) {
   if (!project) return null;
@@ -12,38 +13,49 @@ export function ProjectCard({ project, index, onClick }) {
   const [projectName, projectSubtitle] = project.title.split(" - ");
 
   return (
-    <article className="group border-t border-border/80 py-8 last:border-b sm:py-9">
+    <article className="group border-t-2 border-foreground py-8 last:border-b-2 sm:py-9">
       <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-12">
         <div className="flex-1">
           <button type="button" onClick={onClick} className="w-full text-left">
-            <p className="section-kicker mb-3">
+            <p className="mb-3 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+              <ZineStar className="h-3.5 w-3.5 text-foreground" />
               {String(index + 1).padStart(2, "0")}
-              <span className="mx-2 text-border">/</span>
+              <span>/</span>
               {project.category}
             </p>
 
-            <h3 className="font-serif text-[1.55rem] font-normal leading-snug text-foreground transition-colors duration-300 group-hover:text-highlight sm:text-[1.85rem]">
+            <h3 className="text-[1.45rem] font-bold uppercase leading-snug tracking-tight transition-transform duration-200 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 sm:text-[1.75rem]">
               {projectName}
               {projectSubtitle && (
-                <span className="italic text-muted-foreground">
+                <span className="block text-base font-normal normal-case tracking-normal text-muted-foreground sm:inline sm:text-[1.1rem]">
                   {" "}
-                  {projectSubtitle}
+                  — {projectSubtitle}
                 </span>
               )}
             </h3>
 
-            <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-3 max-w-lg text-sm leading-relaxed">
               {project.shortDescription}
             </p>
 
             {project.technologies?.length > 0 && (
-              <p className="mt-4 text-[12px] text-muted-foreground/80">
+              <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.08em] text-muted-foreground">
                 {project.technologies.slice(0, 5).join("  ·  ")}
               </p>
             )}
           </button>
 
           <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+            {liveUrl && (
+              <a
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="soft-link">
+                Live
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </a>
+            )}
             {githubUrl && (
               <a
                 href={githubUrl}

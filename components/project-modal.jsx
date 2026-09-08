@@ -16,10 +16,10 @@ export function ProjectModal({ project, isOpen, onClose }) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto rounded-2xl border-border bg-background p-6 sm:p-8">
+      <DialogContent className="zine-frame max-h-[90vh] max-w-3xl overflow-y-auto rounded-none border-2 border-foreground bg-background p-6 shadow-[8px_8px_0_0_hsl(var(--foreground))] sm:p-8 sm:rounded-none">
         <DialogHeader className="space-y-2 text-left">
           <p className="section-kicker">{project.category}</p>
-          <DialogTitle className="font-serif text-2xl font-normal tracking-tight sm:text-3xl">
+          <DialogTitle className="text-2xl font-bold uppercase tracking-tight sm:text-3xl">
             {project.title}
           </DialogTitle>
         </DialogHeader>
@@ -49,7 +49,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-foreground hover:text-highlight">
+                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-foreground">
                 <ExternalLink className="h-3.5 w-3.5" />
                 Live site
               </a>
@@ -59,7 +59,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
                 href={project.githubUrl || project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground">
+                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground hover:text-foreground">
                 <Github className="h-3.5 w-3.5" />
                 Source
               </a>
@@ -67,7 +67,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
             {project.caseStudy && (
               <Link
                 href={`/work/${project.slug}`}
-                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground">
+                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground hover:text-foreground">
                 <FileDown className="h-3.5 w-3.5" />
                 One-pager
               </Link>
@@ -87,7 +87,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
             <h3 className="section-kicker">Features</h3>
             <ul className="space-y-1.5 text-sm text-muted-foreground">
               {project.features.map((feature, index) => (
-                <li key={index} className="before:mr-2 before:text-highlight before:content-['—']">
+                <li key={index} className="before:mr-2 before:content-['*']">
                   {feature}
                 </li>
               ))}
@@ -103,7 +103,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 border-t border-border pt-5 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 border-t-2 border-foreground pt-5 sm:grid-cols-3">
             <div>
               <p className="section-kicker mb-1">Timeline</p>
               <p className="text-sm text-foreground">{project.timeline}</p>

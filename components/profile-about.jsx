@@ -1,18 +1,21 @@
 "use client";
 
 import { getAboutInfo } from "@/lib/data";
+import { ZineAsterisk } from "@/components/zine";
 
 export function ProfileAbout() {
   const aboutInfo = getAboutInfo();
 
   return (
-    <div className="grid gap-10 border-t border-border/80 py-12 sm:grid-cols-3 sm:gap-12 sm:py-14">
-      <div>
-        <p className="section-kicker">Focus</p>
-        <ul className="mt-4 space-y-3">
+    <div className="grid gap-0 border-y-2 border-foreground py-0 sm:grid-cols-3">
+      <div className="border-foreground p-5 sm:border-r-2">
+        <p className="section-kicker mb-4">
+          Focus <ZineAsterisk />
+        </p>
+        <ul className="space-y-3">
           {aboutInfo.focus.map((item, index) => (
-            <li key={index} className="text-sm leading-relaxed text-muted-foreground">
-              <span className="mr-2 font-serif italic text-foreground/50">
+            <li key={index} className="text-sm leading-relaxed">
+              <span className="mr-2 font-mono text-[11px] text-muted-foreground">
                 {String(index + 1).padStart(2, "0")}
               </span>
               {item}
@@ -21,21 +24,23 @@ export function ProfileAbout() {
         </ul>
       </div>
 
-      <div>
-        <p className="section-kicker">Languages</p>
-        <ul className="mt-4 space-y-2">
+      <div className="border-t-2 border-foreground p-5 sm:border-l-0 sm:border-r-2 sm:border-t-0">
+        <p className="section-kicker mb-4">Languages</p>
+        <ul className="space-y-2">
           {aboutInfo.languages.map((language) => (
-            <li key={language.name} className="text-sm text-foreground">
+            <li key={language.name} className="text-sm">
               {language.name}
-              <span className="ml-2 text-muted-foreground">{language.proficiency}</span>
+              <span className="ml-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                {language.proficiency}
+              </span>
             </li>
           ))}
         </ul>
       </div>
 
-      <div>
-        <p className="section-kicker">Interests</p>
-        <p className="mt-4 text-sm leading-7 text-muted-foreground">
+      <div className="border-t-2 border-foreground p-5 sm:border-t-0">
+        <p className="section-kicker mb-4">Interests</p>
+        <p className="font-mono text-[12px] uppercase leading-7 tracking-[0.06em] text-muted-foreground">
           {aboutInfo.interests.join("  ·  ")}
         </p>
       </div>

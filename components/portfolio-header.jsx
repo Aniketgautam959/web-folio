@@ -48,15 +48,15 @@ export function PortfolioHeader() {
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <div
         className={cn(
-          "site-shell !px-3 sm:!px-4 rounded-full border transition-colors duration-200",
+          "site-shell !px-0 border-2 border-foreground bg-background transition-[box-shadow,transform] duration-200",
           scrolled || mobileMenuOpen
-            ? "border-border bg-background/75 backdrop-blur-xl"
-            : "border-transparent bg-background/40 backdrop-blur-md"
+            ? "-translate-x-0.5 -translate-y-0.5 shadow-[5px_5px_0_0_hsl(var(--foreground))]"
+            : ""
         )}>
-        <div className="flex h-12 items-center justify-between">
+        <div className="flex h-12 items-center justify-between px-3 sm:px-4">
           <Link
             href="/"
-            className="pl-2 font-serif text-[15px] italic text-foreground">
+            className="font-mono text-[11px] uppercase tracking-[0.16em] text-foreground">
             {personalInfo.name}
           </Link>
 
@@ -69,10 +69,10 @@ export function PortfolioHeader() {
                   key={item.label}
                   href={item.href}
                   className={cn(
-                    "rounded-full px-3 py-1.5 text-[13px] transition-colors",
+                    "border border-transparent px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.14em] transition-all duration-200",
                     isActive
-                      ? "bg-foreground text-background"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "border-foreground bg-foreground text-background"
+                      : "hover:border-foreground hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[3px_3px_0_0_hsl(var(--foreground))]"
                   )}>
                   {item.label}
                 </Link>
@@ -84,17 +84,17 @@ export function PortfolioHeader() {
             <ThemeToggle />
             <button
               type="button"
-              className="flex h-9 w-9 items-center justify-center rounded-full text-foreground md:hidden"
+              className="flex h-9 w-9 items-center justify-center border border-foreground md:hidden"
               onClick={() => setMobileMenuOpen((open) => !open)}
               aria-label="Toggle menu">
-              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+              {mobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
             </button>
           </div>
         </div>
       </div>
 
       {mobileMenuOpen && (
-        <div className="site-shell mt-2 rounded-2xl border border-border bg-background/95 p-2 backdrop-blur-xl md:hidden">
+        <div className="site-shell mt-2 border-2 border-foreground bg-background p-2 md:hidden">
           {navItems.slice(1).map((item) => {
             const isActive = activeSection === item.href.substring(1);
 
@@ -103,10 +103,10 @@ export function PortfolioHeader() {
                 key={item.label}
                 href={item.href}
                 className={cn(
-                  "block rounded-xl px-3 py-2.5 text-sm",
+                  "block px-3 py-2.5 font-mono text-xs uppercase tracking-[0.14em]",
                   isActive
-                    ? "bg-muted text-foreground"
-                    : "text-muted-foreground"
+                    ? "bg-foreground text-background"
+                    : "text-foreground"
                 )}
                 onClick={() => setMobileMenuOpen(false)}>
                 {item.label}

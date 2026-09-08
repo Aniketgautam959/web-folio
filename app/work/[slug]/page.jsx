@@ -49,10 +49,12 @@ export default async function CaseStudyPage({ params }) {
         </div>
 
         <p className="section-kicker">Case study</p>
-        <h1 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
+        <h1 className="mt-3 text-4xl font-bold uppercase leading-tight tracking-tight sm:text-5xl">
           {name}
           {subtitle && (
-            <span className="italic text-muted-foreground"> {subtitle}</span>
+            <span className="mt-2 block text-xl font-normal normal-case tracking-normal text-muted-foreground sm:text-2xl">
+              {subtitle}
+            </span>
           )}
         </h1>
         <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -96,7 +98,7 @@ export default async function CaseStudyPage({ params }) {
             {(study.architecture || []).map((item) => (
               <li
                 key={item}
-                className="text-sm leading-relaxed text-muted-foreground before:mr-2 before:text-highlight before:content-['—']">
+                className="text-sm leading-relaxed before:mr-2 before:content-['*']">
                 {item}
               </li>
             ))}
@@ -109,14 +111,14 @@ export default async function CaseStudyPage({ params }) {
             {(study.tradeoffs || []).map((item) => (
               <li
                 key={item}
-                className="text-sm leading-relaxed text-muted-foreground before:mr-2 before:text-highlight before:content-['—']">
+                className="text-sm leading-relaxed before:mr-2 before:content-['*']">
                 {item}
               </li>
             ))}
           </ul>
         </section>
 
-        <div className="no-print mt-12 flex flex-wrap gap-5 border-t border-border pt-8">
+        <div className="no-print mt-12 flex flex-wrap gap-5 border-t-2 border-foreground pt-8">
           {project.liveUrl && (
             <a
               href={project.liveUrl}

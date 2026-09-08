@@ -30,7 +30,7 @@ export function CursorFollow() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed z-[80] hidden h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-highlight/50 mix-blend-difference md:block"
+      className="pointer-events-none fixed z-[80] hidden h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 border border-foreground bg-foreground mix-blend-difference md:block"
       style={{ left: pos.x, top: pos.y }}
     />
   );

@@ -31,14 +31,14 @@ export function SitePreview({ url, title, image }) {
   if (!url && !image) return null;
 
   return (
-    <div className="overflow-hidden rounded-xl border border-border/80 bg-card shadow-[0_8px_30px_-18px_rgba(0,0,0,0.45)]">
-      <div className="flex items-center gap-1.5 border-b border-border px-2 py-1.5">
+    <div className="zine-frame overflow-hidden bg-card">
+      <div className="flex items-center gap-1.5 border-b-2 border-foreground px-2 py-1.5">
         <div className="flex gap-1">
-          <span className="h-1.5 w-1.5 rounded-full bg-foreground/20" />
-          <span className="h-1.5 w-1.5 rounded-full bg-foreground/20" />
-          <span className="h-1.5 w-1.5 rounded-full bg-foreground/20" />
+          <span className="h-2 w-2 border border-foreground" />
+          <span className="h-2 w-2 border border-foreground" />
+          <span className="h-2 w-2 border border-foreground" />
         </div>
-        <span className="min-w-0 truncate text-[10px] text-muted-foreground">
+        <span className="min-w-0 truncate font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
           {host}
         </span>
       </div>
@@ -51,7 +51,7 @@ export function SitePreview({ url, title, image }) {
             src={image}
             alt={title}
             fill
-            className="object-contain object-top"
+            className="object-contain object-top grayscale"
           />
         ) : (
           <iframe

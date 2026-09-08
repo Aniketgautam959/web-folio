@@ -31,7 +31,7 @@ export function AnimatedSection({ children, className, id }) {
       id={id}
       className={cn(
         "scroll-mt-28 translate-y-5 opacity-0 transition-all duration-700 ease-out",
-        visible && "translate-y-0 opacity-100",
+        visible && "inview translate-y-0 opacity-100",
         className
       )}>
       {children}
