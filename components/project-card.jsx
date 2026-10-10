@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { ArrowUpRight, FileDown, Github } from "lucide-react";
 import { SitePreview } from "@/components/site-preview";
-import { ZineStar } from "@/components/zine";
 
 export function ProjectCard({ project, index, onClick }) {
   if (!project) return null;
@@ -13,35 +12,39 @@ export function ProjectCard({ project, index, onClick }) {
   const [projectName, projectSubtitle] = project.title.split(" - ");
 
   return (
-    <article className="group border-t-2 border-foreground py-8 last:border-b-2 sm:py-9">
-      <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-12">
+    <article className="shine group glass mb-5 p-5 transition-colors duration-500 hover:border-primary/40 sm:p-6">
+      <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10">
         <div className="flex-1">
           <button type="button" onClick={onClick} className="w-full text-left">
-            <p className="mb-3 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-              <ZineStar className="h-3.5 w-3.5 text-foreground" />
+            <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
               {String(index + 1).padStart(2, "0")}
-              <span>/</span>
-              {project.category}
+              <span className="mx-2 text-muted-foreground">/</span>
+              <span className="text-muted-foreground">{project.category}</span>
             </p>
 
-            <h3 className="text-[1.45rem] font-bold uppercase leading-snug tracking-tight transition-transform duration-200 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 sm:text-[1.75rem]">
+            <h3 className="font-serif text-3xl leading-tight tracking-tight transition-colors duration-300 group-hover:text-primary sm:text-4xl">
               {projectName}
-              {projectSubtitle && (
-                <span className="block text-base font-normal normal-case tracking-normal text-muted-foreground sm:inline sm:text-[1.1rem]">
-                  {" "}
-                  — {projectSubtitle}
-                </span>
-              )}
             </h3>
+            {projectSubtitle && (
+              <p className="mt-1 text-sm text-muted-foreground">
+                {projectSubtitle}
+              </p>
+            )}
 
-            <p className="mt-3 max-w-lg text-sm leading-relaxed">
+            <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground">
               {project.shortDescription}
             </p>
 
             {project.technologies?.length > 0 && (
-              <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.08em] text-muted-foreground">
-                {project.technologies.slice(0, 5).join("  ·  ")}
-              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.technologies.slice(0, 5).map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-border px-2.5 py-1 text-[11px] text-muted-foreground">
+                    {tech}
+                  </span>
+                ))}
+              </div>
             )}
           </button>
 
@@ -72,10 +75,7 @@ export function ProjectCard({ project, index, onClick }) {
                 One-pager
               </Link>
             )}
-            <button
-              type="button"
-              onClick={onClick}
-              className="soft-link hidden sm:inline-flex">
+            <button type="button" onClick={onClick} className="soft-link">
               Details
               <ArrowUpRight className="h-3.5 w-3.5" />
             </button>
@@ -87,7 +87,7 @@ export function ProjectCard({ project, index, onClick }) {
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="lift-card relative w-full shrink-0 md:w-[280px] lg:w-[320px]">
+            className="lift-card relative w-full shrink-0 overflow-hidden rounded-2xl md:w-[300px] lg:w-[340px]">
             <SitePreview
               url={liveUrl}
               title={projectName}

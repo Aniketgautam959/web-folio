@@ -2,49 +2,46 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { getPersonalInfo } from "@/lib/data";
-import { ZineBox } from "@/components/zine";
 
 export function ProfileContact() {
   const personalInfo = getPersonalInfo();
 
   return (
-    <div className="py-6 sm:py-10">
+    <div className="glass relative overflow-hidden px-6 py-10 sm:px-10 sm:py-14">
+      <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary/20 blur-3xl" />
       <p className="section-kicker">Contact</p>
-      <div className="mt-4 flex flex-wrap items-center gap-3">
-        <ZineBox as="h2" className="-rotate-1 px-4 py-2 text-xl sm:text-3xl">
-          Let’s build
-        </ZineBox>
-        <ZineBox as="span" className="rotate-1 px-4 py-2 text-xl sm:text-3xl">
-          something useful
-        </ZineBox>
-      </div>
+      <h2 className="mt-4 max-w-xl font-serif text-4xl leading-[1.05] tracking-tight dark:uppercase dark:tracking-[0.04em] sm:text-6xl">
+        Let’s build
+        <span className="italic text-primary dark:not-italic dark:text-foreground">
+          {" "}
+          something useful.
+        </span>
+      </h2>
 
       {personalInfo.replyTime && (
-        <p className="mt-6 font-mono text-[12px] uppercase tracking-[0.12em] text-muted-foreground">
-          ● {personalInfo.replyTime}
+        <p className="mt-6 text-sm text-muted-foreground">
+          {personalInfo.replyTime}
         </p>
       )}
 
       <a
         href={`mailto:${personalInfo.email}`}
-        className="group mt-4 inline-flex items-center gap-2 text-lg font-bold uppercase tracking-tight hover:-translate-x-0.5 hover:-translate-y-0.5 sm:text-2xl">
+        className="group mt-6 inline-flex items-center gap-2 font-serif text-2xl tracking-tight text-foreground sm:text-3xl">
         {personalInfo.email}
-        <ArrowUpRight className="h-5 w-5 shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+        <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
       </a>
 
-      <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-[0.12em]">
+      <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
         <a href={`tel:${personalInfo.phone}`} className="soft-link">
           {personalInfo.phone}
         </a>
         <span>{personalInfo.location}</span>
       </div>
 
-      <ZineBox
-        href={`mailto:${personalInfo.email}`}
-        className="mt-8 px-5 py-2.5 text-sm">
+      <a href={`mailto:${personalInfo.email}`} className="btn-gold mt-8">
         Connect with me
-        <ArrowUpRight className="ml-2 h-3.5 w-3.5" />
-      </ZineBox>
+        <ArrowUpRight className="h-4 w-4" />
+      </a>
     </div>
   );
 }

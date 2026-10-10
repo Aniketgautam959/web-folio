@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export function CursorFollow() {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [pos, setPos] = useState({ x: -200, y: -200 });
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -30,8 +30,9 @@ export function CursorFollow() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed z-[80] hidden h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 border border-foreground bg-foreground mix-blend-difference md:block"
-      style={{ left: pos.x, top: pos.y }}
-    />
+      className="pointer-events-none fixed left-0 top-0 z-[70] hidden md:block dark:!hidden"
+      style={{ transform: `translate(${pos.x}px, ${pos.y}px)` }}>
+      <div className="h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
+    </div>
   );
 }

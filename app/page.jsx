@@ -13,7 +13,6 @@ import { ProfileContact } from "@/components/profile-contact";
 import { CredentialsSection } from "@/components/credentials-section";
 import { PortfolioHeader } from "@/components/portfolio-header";
 import { SectionHeading } from "@/components/section-heading";
-import { ZineBox } from "@/components/zine";
 import { getExperienceInfo, getTechnicalSkillsInfo } from "@/lib/data";
 
 const skillIcons = {
@@ -91,27 +90,44 @@ export default function Home() {
         </AnimatedSection>
 
         <AnimatedSection id="skills" className="py-12 sm:py-16">
-          <div className="mb-8 flex justify-center sm:mb-10">
-            <ZineBox as="h2" className="px-6 py-3 text-xl sm:text-2xl">
-              Skills I work with
-            </ZineBox>
+          <SectionHeading index="03" title="Skills I work with" />
+          <div className="marquee relative left-1/2 mb-8 w-screen -translate-x-1/2 overflow-hidden border-y border-border py-4">
+            <div className="marquee-track gap-3 pr-3">
+              {[...skillGroups.flatMap((group) => group.items), ...skillGroups.flatMap((group) => group.items)].map(
+                (skill, index) => (
+                  <span
+                    key={`${skill}-${index}`}
+                    className="rounded-full border border-border bg-card/70 px-4 py-1.5 text-sm text-foreground">
+                    {skill}
+                  </span>
+                )
+              )}
+            </div>
           </div>
-          <div className="grid gap-px border-2 border-foreground bg-foreground sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2">
             {skillGroups.map((group) => {
               const Icon = skillIcons[group.label] || Code2;
               return (
                 <div
                   key={group.label}
-                  className="bg-background p-6 transition-colors duration-200 hover:bg-foreground hover:text-background">
+                  className="glass p-6 transition-colors duration-300 hover:border-primary/40">
                   <div className="mb-4 flex items-center gap-3">
-                    <Icon className="h-7 w-7 stroke-[1.4]" />
-                    <h3 className="text-lg font-bold uppercase tracking-tight">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/15 text-primary">
+                      <Icon className="h-5 w-5 stroke-[1.5]" />
+                    </span>
+                    <h3 className="font-serif text-2xl tracking-tight">
                       {group.label}
                     </h3>
                   </div>
-                  <p className="font-mono text-[12px] uppercase leading-6 tracking-[0.06em]">
-                    {group.items.join("  ·  ")}
-                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full bg-muted px-3 py-1 text-xs text-foreground/80">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               );
             })}
@@ -127,8 +143,13 @@ export default function Home() {
           <ProfileContact />
         </AnimatedSection>
 
-        <footer className="border-t-2 border-foreground py-8 text-center font-mono text-[11px] uppercase tracking-[0.16em]">
-          <p>© {new Date().getFullYear()} Aniket Gautam</p>
+        <footer className="mt-8 flex flex-col items-start justify-between gap-3 border-t border-border py-8 sm:flex-row sm:items-center">
+          <p className="font-serif text-lg">
+            Aniket Gautam<span className="text-primary">.</span>
+          </p>
+          <p className="text-xs text-muted-foreground">
+            © {new Date().getFullYear()} · Ghaziabad, India
+          </p>
         </footer>
       </div>
 

@@ -9,16 +9,14 @@ function CredentialRow({ title, meta, href, logo, alt, extra }) {
         <Image
           src={logo}
           alt={alt || title}
-          width={36}
-          height={36}
-          className="h-9 w-9 shrink-0 border border-foreground bg-background object-contain p-1 grayscale"
+          width={40}
+          height={40}
+          className="h-10 w-10 shrink-0 rounded-xl border border-border bg-background object-contain p-1"
         />
       )}
       <div className="min-w-0 flex-1">
-        <p className="text-sm font-bold uppercase tracking-tight">{title}</p>
-        <p className="mt-0.5 font-mono text-[11px] uppercase tracking-[0.08em] text-muted-foreground">
-          {meta}
-        </p>
+        <p className="text-sm font-medium leading-snug">{title}</p>
+        <p className="mt-0.5 text-xs text-muted-foreground">{meta}</p>
         {extra && (
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
             {extra}
@@ -26,13 +24,13 @@ function CredentialRow({ title, meta, href, logo, alt, extra }) {
         )}
       </div>
       {href && (
-        <ArrowUpRight className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+        <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
       )}
     </>
   );
 
   const className =
-    "flex items-start gap-3 border-b-2 border-foreground py-4 last:border-b-0 transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5";
+    "flex items-start gap-3 border-b border-border py-4 last:border-b-0 transition-colors duration-300 hover:text-primary";
 
   if (href) {
     return (
@@ -53,9 +51,9 @@ export function CredentialsSection() {
   const credentialsInfo = getCredentialsInfo();
 
   return (
-    <div className="grid gap-8 md:grid-cols-2">
-      <div className="zine-frame p-5">
-        <p className="section-kicker mb-3">Certifications</p>
+    <div className="grid gap-4 md:grid-cols-2">
+      <div className="glass p-6">
+        <p className="section-kicker mb-2">Certifications</p>
         <div>
           {credentialsInfo.certifications.map((cert, index) => (
             <CredentialRow
@@ -70,8 +68,8 @@ export function CredentialsSection() {
         </div>
       </div>
 
-      <div className="zine-frame p-5">
-        <p className="section-kicker mb-3">Education</p>
+      <div className="glass p-6">
+        <p className="section-kicker mb-2">Education</p>
         <div>
           {credentialsInfo.education.map((edu, index) => (
             <CredentialRow
@@ -86,17 +84,23 @@ export function CredentialsSection() {
       </div>
 
       {credentialsInfo.skills?.length > 0 && (
-        <div className="zine-frame p-5">
-          <p className="section-kicker mb-3">Expertise</p>
-          <p className="font-mono text-[12px] uppercase leading-7 tracking-[0.06em] text-muted-foreground">
-            {credentialsInfo.skills.join("  ·  ")}
-          </p>
+        <div className="glass p-6">
+          <p className="section-kicker mb-4">Expertise</p>
+          <div className="flex flex-wrap gap-2">
+            {credentialsInfo.skills.map((skill) => (
+              <span
+                key={skill}
+                className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
       )}
 
       {credentialsInfo.patents?.length > 0 && (
-        <div className="zine-frame p-5">
-          <p className="section-kicker mb-3">Patents & Publications</p>
+        <div className="glass p-6">
+          <p className="section-kicker mb-2">Patents & publications</p>
           <div>
             {credentialsInfo.patents.map((patent, index) => (
               <CredentialRow

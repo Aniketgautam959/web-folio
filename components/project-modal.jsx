@@ -16,10 +16,10 @@ export function ProjectModal({ project, isOpen, onClose }) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto rounded-none border-2 border-foreground bg-background p-6 shadow-[8px_8px_0_0_hsl(var(--foreground))] sm:p-8 sm:rounded-none">
+      <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto rounded-3xl border border-border bg-background/95 p-6 shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.45)] backdrop-blur-xl sm:p-8">
         <DialogHeader className="space-y-2 text-left">
           <p className="section-kicker">{project.category}</p>
-          <DialogTitle className="text-2xl font-bold uppercase tracking-tight sm:text-3xl">
+          <DialogTitle className="font-serif text-3xl font-medium tracking-tight sm:text-4xl">
             {project.title}
           </DialogTitle>
         </DialogHeader>
@@ -49,7 +49,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-foreground">
+                className="soft-link">
                 <ExternalLink className="h-3.5 w-3.5" />
                 Live site
               </a>
@@ -59,7 +59,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
                 href={project.githubUrl || project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground hover:text-foreground">
+                className="soft-link">
                 <Github className="h-3.5 w-3.5" />
                 Source
               </a>
@@ -67,7 +67,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
             {project.caseStudy && (
               <Link
                 href={`/work/${project.slug}`}
-                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground hover:text-foreground">
+                className="soft-link">
                 <FileDown className="h-3.5 w-3.5" />
                 One-pager
               </Link>
@@ -103,7 +103,7 @@ export function ProjectModal({ project, isOpen, onClose }) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 border-t-2 border-foreground pt-5 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 border-t border-border pt-5 sm:grid-cols-3">
             <div>
               <p className="section-kicker mb-1">Timeline</p>
               <p className="text-sm text-foreground">{project.timeline}</p>

@@ -1,21 +1,28 @@
-import { Plus_Jakarta_Sans, Space_Mono } from "next/font/google";
+import { Fraunces, Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { AnimationProvider } from "@/contexts/animation-context";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PageFade } from "@/components/page-fade";
 import { CursorFollow } from "@/components/cursor-follow";
 import { FloatingCta } from "@/components/floating-cta";
+import { Atmosphere } from "@/components/atmosphere";
 import { getMetaInfo } from "@/lib/data";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const spaceMono = Space_Mono({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
   variable: "--font-mono",
   display: "swap",
 });
@@ -61,13 +68,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${plusJakarta.variable} ${spaceMono.variable} font-sans antialiased`}>
+        className={`${outfit.variable} ${fraunces.variable} ${jetbrains.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
           storageKey="folio-zine-theme-dark"
           disableTransitionOnChange>
+          <Atmosphere />
           <AnimationProvider>
             <PageFade>
               {children}

@@ -12,7 +12,7 @@ export function SocialLinks({ socialLinks }) {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-9 w-9 items-center justify-center border-2 border-foreground transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-foreground hover:text-background hover:shadow-[3px_3px_0_0_hsl(var(--foreground))]"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/60 text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:text-primary"
             aria-label={link.platform}>
             {IconComponent && <IconComponent className="h-4 w-4" />}
           </a>
