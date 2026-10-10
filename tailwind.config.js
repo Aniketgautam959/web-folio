@@ -30,6 +30,7 @@ const config = {
         ],
         serif: ["var(--font-serif)", "Georgia", "serif"],
         mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
+        script: ["var(--font-script)", "cursive"],
       },
       colors: {
         border: "hsl(var(--border))",

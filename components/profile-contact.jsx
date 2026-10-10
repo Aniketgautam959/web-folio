@@ -7,15 +7,10 @@ export function ProfileContact() {
   const personalInfo = getPersonalInfo();
 
   return (
-    <div className="glass relative overflow-hidden px-6 py-10 sm:px-10 sm:py-14">
-      <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary/20 blur-3xl" />
-      <p className="section-kicker">Contact</p>
-      <h2 className="mt-4 max-w-xl font-serif text-4xl leading-[1.05] tracking-tight dark:uppercase dark:tracking-[0.04em] sm:text-6xl">
-        Let’s build
-        <span className="italic text-primary dark:not-italic dark:text-foreground">
-          {" "}
-          something useful.
-        </span>
+    <div className="border-t border-foreground/15 px-1 py-10 sm:py-14">
+      <p className="section-kicker">say hello</p>
+      <h2 className="mt-4 max-w-xl font-sans text-4xl font-bold uppercase leading-[0.95] tracking-[0.04em] sm:text-6xl">
+        Let’s build something useful.
       </h2>
 
       {personalInfo.replyTime && (

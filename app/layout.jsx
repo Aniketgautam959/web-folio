@@ -1,4 +1,4 @@
-import { Fraunces, Outfit, JetBrains_Mono } from "next/font/google";
+import { Caveat, Fraunces, Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { AnimationProvider } from "@/contexts/animation-context";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -24,6 +24,12 @@ const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-mono",
+  display: "swap",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-script",
   display: "swap",
 });
 
@@ -66,14 +72,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${outfit.variable} ${fraunces.variable} ${jetbrains.variable} font-sans antialiased`}>
+        className={`${outfit.variable} ${fraunces.variable} ${jetbrains.variable} ${caveat.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
-          storageKey="folio-zine-theme-dark"
+          storageKey="folio-paper-theme"
           disableTransitionOnChange>
           <Atmosphere />
           <AnimationProvider>

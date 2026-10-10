@@ -12,7 +12,7 @@ export function ProjectCard({ project, index, onClick }) {
   const [projectName, projectSubtitle] = project.title.split(" - ");
 
   return (
-    <article className="shine group glass mb-5 p-5 transition-colors duration-500 hover:border-primary/40 sm:p-6">
+    <article className="group mb-8 border-b border-foreground/15 pb-8">
       <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10">
         <div className="flex-1">
           <button type="button" onClick={onClick} className="w-full text-left">
@@ -22,7 +22,7 @@ export function ProjectCard({ project, index, onClick }) {
               <span className="text-muted-foreground">{project.category}</span>
             </p>
 
-            <h3 className="font-serif text-3xl leading-tight tracking-tight transition-colors duration-300 group-hover:text-primary sm:text-4xl">
+            <h3 className="font-sans text-3xl font-bold uppercase leading-none tracking-[0.04em] transition-colors duration-300 group-hover:text-foreground/70 sm:text-4xl">
               {projectName}
             </h3>
             {projectSubtitle && (

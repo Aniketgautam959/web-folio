@@ -50,24 +50,22 @@ export function PortfolioHeader() {
   }, [navItems]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 dark:bg-background">
+    <header className="fixed inset-x-0 top-0 z-50 bg-background/80 backdrop-blur-md">
       <div
         aria-hidden
-        className="h-[2px] w-full origin-left bg-primary"
+        className="h-[2px] w-full origin-left bg-foreground"
         style={{ transform: `scaleX(${progress})` }}
       />
-      <div className="site-shell pt-3">
+      <div className="site-shell">
         <div
           className={cn(
-            "flex h-14 items-center justify-between rounded-full border border-border/70 bg-background/70 px-3 backdrop-blur-xl transition-shadow duration-500 dark:rounded-none dark:border-x-0 dark:border-t-0 dark:bg-background dark:px-0 dark:shadow-none dark:backdrop-blur-none sm:px-4 dark:sm:px-0",
-            scrolled &&
-              "shadow-[0_16px_40px_-24px_hsl(var(--foreground)/0.55)] dark:shadow-none"
+            "flex h-16 items-center justify-between border-b border-transparent transition-colors duration-300",
+            scrolled && "border-foreground/15"
           )}>
           <Link
             href="/"
-            className="pl-2 font-serif text-lg tracking-tight text-foreground">
+            className="font-script text-3xl leading-none text-foreground">
             {personalInfo.name.split(" ")[0]}
-            <span className="text-primary">.</span>
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">
@@ -103,7 +101,7 @@ export function PortfolioHeader() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="mt-2 rounded-3xl border border-border bg-background/90 p-2 backdrop-blur-xl dark:rounded-none dark:bg-background dark:backdrop-blur-none md:hidden">
+          <div className="border-b border-foreground/15 bg-background py-2 md:hidden">
             {navItems.slice(1).map((item) => {
               const isActive = activeSection === item.href.substring(1);
 

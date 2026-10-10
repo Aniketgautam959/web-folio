@@ -11,10 +11,10 @@ export function ExperienceCard({
       <span className="absolute left-0 top-2 h-full w-px bg-border" />
       <span className="absolute left-[-4px] top-2 h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_0_4px_hsl(var(--background))]" />
 
-      <div className="glass p-5 sm:p-6">
+      <div className="pb-2">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
           <div>
-            <h3 className="font-serif text-2xl tracking-tight">{title}</h3>
+            <h3 className="font-sans text-xl font-bold uppercase tracking-[0.04em]">{title}</h3>
             <p className="mt-1 text-sm text-primary">{company}</p>
           </div>
           <time className="shrink-0 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">

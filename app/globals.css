@@ -3,50 +3,50 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 97%;
-  --foreground: 0 0% 9%;
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 9%;
-  --primary: 0 0% 18%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 0 0% 94%;
-  --secondary-foreground: 0 0% 9%;
-  --muted: 0 0% 94%;
-  --muted-foreground: 0 0% 40%;
-  --accent: 0 0% 28%;
-  --accent-foreground: 0 0% 9%;
+  --background: 40 42% 94%;
+  --foreground: 24 12% 8%;
+  --card: 42 55% 97%;
+  --card-foreground: 24 12% 8%;
+  --popover: 42 55% 97%;
+  --popover-foreground: 24 12% 8%;
+  --primary: 24 12% 8%;
+  --primary-foreground: 40 40% 96%;
+  --secondary: 38 28% 90%;
+  --secondary-foreground: 24 12% 8%;
+  --muted: 38 24% 90%;
+  --muted-foreground: 28 8% 34%;
+  --accent: 24 12% 8%;
+  --accent-foreground: 40 40% 96%;
   --destructive: 0 72% 46%;
   --destructive-foreground: 0 0% 100%;
-  --border: 0 0% 88%;
-  --input: 0 0% 88%;
-  --ring: 0 0% 28%;
-  --highlight: 0 0% 28%;
-  --radius: 1.25rem;
+  --border: 32 14% 76%;
+  --input: 32 14% 76%;
+  --ring: 24 12% 8%;
+  --highlight: 24 12% 8%;
+  --radius: 1rem;
 }
 
 .dark {
-  --background: 30 8% 6%;
-  --foreground: 40 33% 92%;
-  --card: 32 7% 8%;
-  --card-foreground: 40 33% 92%;
-  --popover: 32 7% 8%;
-  --popover-foreground: 40 33% 92%;
-  --primary: 38 28% 82%;
-  --primary-foreground: 30 10% 8%;
-  --secondary: 32 6% 12%;
-  --secondary-foreground: 40 33% 92%;
-  --muted: 32 6% 13%;
+  --background: 28 10% 7%;
+  --foreground: 40 32% 92%;
+  --card: 28 8% 10%;
+  --card-foreground: 40 32% 92%;
+  --popover: 28 8% 10%;
+  --popover-foreground: 40 32% 92%;
+  --primary: 40 32% 92%;
+  --primary-foreground: 28 10% 8%;
+  --secondary: 28 8% 14%;
+  --secondary-foreground: 40 32% 92%;
+  --muted: 28 8% 14%;
   --muted-foreground: 36 12% 68%;
-  --accent: 38 18% 74%;
-  --accent-foreground: 30 10% 8%;
+  --accent: 40 32% 92%;
+  --accent-foreground: 28 10% 8%;
   --destructive: 0 62% 50%;
   --destructive-foreground: 0 0% 98%;
-  --border: 36 8% 18%;
-  --input: 36 8% 18%;
-  --ring: 38 28% 82%;
-  --highlight: 38 28% 82%;
+  --border: 30 8% 22%;
+  --input: 30 8% 22%;
+  --ring: 40 32% 92%;
+  --highlight: 40 32% 92%;
 }
 
 html {
@@ -108,11 +108,11 @@ body {
   }
 
   .section-kicker {
-    @apply font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-primary;
+    @apply font-script text-[1.65rem] font-medium leading-none tracking-normal text-foreground;
   }
 
   .section-title {
-    @apply font-serif text-4xl font-medium leading-none tracking-tight text-foreground sm:text-5xl;
+    @apply font-sans text-3xl font-bold uppercase leading-none tracking-[0.12em] text-foreground sm:text-4xl;
   }
 
   .soft-link {
@@ -145,7 +145,7 @@ body {
   }
 
   .glass {
-    @apply rounded-3xl border border-border/80 bg-card/70 shadow-[0_20px_60px_-40px_hsl(var(--foreground)/0.45)] backdrop-blur-xl;
+    @apply rounded-2xl border border-foreground/15 bg-card shadow-none;
   }
 
   .zine-box {
@@ -181,7 +181,7 @@ body {
   }
 
   .btn-gold {
-    @apply inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground;
+    @apply inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary-foreground;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
       box-shadow 0.35s ease;
   }
@@ -192,7 +192,7 @@ body {
   }
 
   .btn-ghost {
-    @apply inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-5 py-2.5 text-sm font-medium text-foreground backdrop-blur;
+    @apply inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-transparent px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
       border-color 0.35s ease, background-color 0.35s ease;
   }
@@ -206,67 +206,6 @@ body {
   .hairline {
     @apply h-px w-full bg-border;
   }
-}
-
-/* Editorial paper, dark mode only. Light mode stays grey. */
-.dark .site-shell {
-  max-width: 760px;
-}
-
-.dark .atmosphere {
-  display: none;
-}
-
-.dark .section-kicker {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  letter-spacing: 0.28em;
-  color: hsl(var(--muted-foreground));
-}
-
-.dark .section-title {
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 500;
-}
-
-.dark .glass,
-.dark .zine-frame,
-.dark .zine-frame-static {
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
-}
-
-.dark .zine-box,
-.dark .btn-gold,
-.dark .btn-ghost {
-  border-radius: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 11px;
-  box-shadow: none;
-  backdrop-filter: none;
-}
-
-.dark .btn-gold {
-  background: hsl(var(--foreground));
-  color: hsl(var(--background));
-}
-
-.dark .btn-gold:hover,
-.dark .btn-ghost:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-.dark .btn-ghost {
-  background: transparent;
-}
-
-.dark .shine::after {
-  display: none;
 }
 
 .orb {
@@ -307,7 +246,7 @@ body {
 .grain {
   position: absolute;
   inset: -20%;
-  opacity: 0.18;
+  opacity: 0.07;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
