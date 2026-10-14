@@ -10,14 +10,14 @@
     "name": "Aniket Gautam",
     "title": "Full Stack Developer",
     "location": "Ghaziabad, India",
-    "avatar": "/me.jpg",
+    "avatar": "/uploads/avatar-1791999111911.jpg",
     "email": "aniket10bhp@gmail.com",
     "phone": "+91 8447821067",
     "workingHours": "Monday - Friday, 9am - 6pm IST",
     "availableForWork": true,
     "availabilityLabel": "Open for SDE, Frontend, Full Stack & Freelance",
     "replyTime": "Usually replies within 24 hrs",
-    "resumeUrl": "https://drive.google.com/file/d/1qE4K0zbkq3-i3hb5Hs2yG9JzIAkDQLGE/view?usp=sharing",
+    "resumeUrl": "https://drive.google.com/file/d/14fvw8PewIFTD5A94WaLMXFfUWAabFaGm/view?usp=sharing",
     "badges": [
       "Full-Stack",
       "Frontend",
@@ -39,7 +39,7 @@
   "about": {
     "bio": "Full-Stack Developer building scalable web apps and AI-driven products. I work with Next.js, React, Laravel, and MySQL to ship fast, clean digital experiences.",
     "focus": [
-      "Building production-ready Next.js and Laravel applications",
+      "Building production-ready Next.js and AI integrated applications",
       "Optimizing API performance and database queries",
       "Creating intuitive and responsive user interfaces"
     ],

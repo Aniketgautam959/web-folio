@@ -1,12 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { FileText } from "lucide-react";
 import { getPersonalInfo } from "@/lib/data";
+import { useResumeUrl } from "@/hooks/use-resume-url";
 
 export function FloatingCta() {
+  const pathname = usePathname();
   const [show, setShow] = useState(false);
   const personalInfo = getPersonalInfo();
+  const resumeUrl = useResumeUrl(personalInfo.resumeUrl);
 
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY > 520);
@@ -14,6 +18,8 @@ export function FloatingCta() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  if (pathname.startsWith("/admin")) return null;
 
   return (
     <div
@@ -26,7 +32,7 @@ export function FloatingCta() {
         Contact
       </a>
       <a
-        href={personalInfo.resumeUrl}
+        href={resumeUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="btn-gold !py-2">
